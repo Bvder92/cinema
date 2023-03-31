@@ -8,5 +8,5 @@ if (!$conn)
 }
 
 else{
-    echo "oui";
+    echo "<h1>mysqli marche</h1>";
 }
