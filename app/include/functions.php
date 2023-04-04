@@ -11,6 +11,16 @@ function emptyInput($nom, $prenom, $email, $mdp, $remdp){
     return $res;
 }
 
+function emptyInputLogin($email, $mdp){
+    if(empty($email) || empty($mdp)){
+        $res = true;
+    }
+    else{
+        $res = false;
+    }
+    return $res;
+}
+
 //retourne true si l'adresse mail n'est pas une adresse valide
 function invalidEmail($email){
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -73,5 +83,46 @@ function createUser($conn, $nom, $prenom, $email, $mdp){
 
     mysqli_stmt_close($statement);
     header("location: ../signup.php?error=none");
+    exit();
+}
+
+function loginUser($conn, $email, $mdp){
+    $emailTaken = emailTaken($conn, $email); //true si le mail est présent dans la db
+
+    if ($emailTaken === false){
+        header("location: ../login.php?error=unknownemail");
+        exit();
+    }
+
+    $sql = "SELECT * FROM Client WHERE EmailClient = ?;";
+
+    $statement = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($statement, $sql)){
+        header("location: ../login.php?error=sqlerror");
+        exit();
+    }
+    mysqli_stmt_bind_param($statement, "s", $email);
+    mysqli_stmt_execute($statement);
+
+    $result = mysqli_stmt_get_result($statement);
+    $row = mysqli_fetch_assoc($result);
+    
+    $hash = $row["MdpClient"];
+
+    //vérifie que le mot de passe saisi correspond à celui dans la bd:
+    if(password_verify($mdp, $hash) === false){
+        header("location: ../login.php?error=wrongpwd");
+        exit();
+    }
+
+    //maintenant que l'utilisateur est connecté, on crée une session pour qu'il reste connecté
+    //on crée des variables de session permettant d'accéder aux champs de l'utilisateur facilement
+    session_start();
+    $_SESSION["IdClient"] = $row["IdClient"];
+    $_SESSION["NomClient"] = $row["NomClient"];
+    $_SESSION["PrenomClient"] = $row["PrenomClient"];
+    $_SESSION["EmailClient"] = $row["EmailClient"];
+
+    header("location: ../index.php"); //renvoie l'utilisateur à l'accueil
     exit();
 }
