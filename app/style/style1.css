@@ -23,13 +23,14 @@ body{
     color: #ffffff;
     background-color: black;
 }
+
 section{
     padding: 4.5rem 0 1.5rem;
 }
 
 a{
     text-decoration: none;
-
+    color: #ffffff;
 }
 
 header{
@@ -89,6 +90,8 @@ header{
     font-weight: 400;
     border-radius: 10px;
 }
+
+
 
 .conatiner{
     width: 100%;
@@ -309,7 +312,6 @@ header{
 }
 
 .salle img:hover{
-    
     transition: 0.2s;
 }
 
@@ -321,6 +323,13 @@ header{
     color: #969892;
 }
 
+.cinema-name h3 a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.cinema-name h3 a:hover{
+    text-decoration: underline;
+}
 
 .wrapper{
     position: relative;
@@ -328,7 +337,8 @@ header{
     width: 400px;
     height: 440px;
     background-color: transparent;
-    backdrop-filter: blur(20px);
+    -webkit-filter: blur(5px);
+	filter: blur(5px);
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
@@ -431,7 +441,6 @@ header{
 
 .btn-login:hover{
     box-shadow: inset 400px 0 0 0 #92222b;
-
 }   
 
 p{
