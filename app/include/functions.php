@@ -82,7 +82,7 @@ function createUser($conn, $nom, $prenom, $email, $mdp){
     mysqli_stmt_execute($statement);
 
     mysqli_stmt_close($statement);
-    header("location: ../signup.php?error=none");
+    header("location: ../profile.php");
     exit();
 }
 
@@ -123,6 +123,6 @@ function loginUser($conn, $email, $mdp){
     $_SESSION["PrenomClient"] = $row["PrenomClient"];
     $_SESSION["EmailClient"] = $row["EmailClient"];
 
-    header("location: ../index.php"); //renvoie l'utilisateur à l'accueil
+    header("location: ../profile.php"); //renvoie l'utilisateur à l'accueil
     exit();
 }
