@@ -176,13 +176,39 @@ header{
     max-width: 100%;
     height: 100%;
     object-fit: cover;
-   
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
 }
 
+  
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+  
+  
+.box-img .middle :hover{
+    opacity: 1;
+}
+  
 .box .box-img img:hover{
     transform: translateY(-10px);
     transition: 0.2s;
-    
+    opacity: 0.3;
+}
+
+.text{
+    background-color: #ED2939;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
 }
 
 .box h3{
@@ -294,73 +320,53 @@ header{
     color: #969892;
 }
 
-/*
-.title-form{
-    margin-bottom: 50px;
-    margin-top: auto;
-}
-
-
-.form .mail{
-    width:auto;
-    border-radius: 10px;
-    display:flex;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-}
-
-.form .pwd{
-    width:auto;
-    border-radius: 10px;
-    display:flex;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-}
-
-.form .btn{
-    display:flex;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-}
-
-.error{
-    display:flex;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-}
-*/
 
 .wrapper{
     position: relative;
+    margin: auto;
     width: 400px;
     height: 440px;
-    background: transparent;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
-    backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.wrapper-register{
+    position: relative;
+    margin: auto;
+    width: 400px;
+    height: 600px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-register .form-box{
+    width: 100%;
+    padding: 40px;
+    margin: auto;
+}
+
 .wrapper .form-box{
     width: 100%;
     padding: 40px;
+    margin: auto;
 
 }
 
 .form-box h2{
     font-size: 2em;
-    color: #ED2939;
+    color: #ffffff;
     text-align: center;
 }
 
@@ -368,6 +374,86 @@ header{
     position: relative;
     width: 100%;
     height: 50px;
-    
+    border-bottom: 2px solid #ffffff;
+    margin: 30px 0;
 }
 
+.input-box label{
+    position: absolute;
+    top:50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus~label, .input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height:100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right:8px;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+.btn-login{
+    width: 100%;
+    height: 45px;
+    background:#ED2939 ;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size:1em;
+    color: #ffffff;
+    font-weight: 500;
+    box-shadow: inset 0 0 0 0 #92222b;
+    transition: ease-out 0.4s;
+}
+
+.btn-login:hover{
+    box-shadow: inset 400px 0 0 0 #92222b;
+
+}   
+
+p{
+    text-align: center;
+    margin: auto;
+    color: #ffffff;
+
+}
+
+.login-register{
+    font-size: .9em;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px ;
+}
+
+.login-register p a{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}

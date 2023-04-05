@@ -21,46 +21,62 @@
    
     </style>
         
+        <header>
+        <div id="logo">
+            <img src="images/logo-cinema.png" alt="logo1" height="%30" width="30%">
+        </div>
+        <ul class="navbar">
+            <li><a href="index.html">Menu</a></li>
+            <li><a href="index.html">Films</a></li>
+            <li><a href="index.html">Cinémas</a></li>
+            <li><a href="profile.php" class="btn"><i class="fa-regular fa-user"></i></a></li>
+
+        </ul>
+    </header>
   
     
 
-
-
-
+<br><br><br><br><br>
 <div class="wrapper">
     <div class="form-box login">
         <h2>SE CONNECTER</h2>
         <form  class="form" action="include/login_script.php" method="post">
             <div class="input-box">
-                <span class="icon"><i class="fa-regular fa-envelope"></i></span>
-                <input class="mail" type="text" name="email" placeholder="Adresse mail"><br>
-                <label>Email</label>
+                <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                <input class="mail" type="text" name="email" placeholder="Email" ><br>
+                <!--<label>Email</label>-->
             </div>
             <div class="input-box">
                 <span class="icon"><i class="fa-regular fa-lock"></i></span>
-                <input class="pwd" type="password" name="mdp" placeholder="Mot de passe"><br>
-                <label>Password</label>
+                <input class="pwd" type="password" name="mdp" placeholder="mot de passe"><br>
+                <!--<label>Password</label>-->
             </div>
-            <button type="submit" name="submit" class="btn">CONNEXION</button>
+            <button type="submit" name="submit" class="btn-login">CONNEXION</button>
+            <div class="login-register">
+                <p>Vous n'avez pas de compte? <a href="signup.php" class="register-link">Créer votre compte</a></p>
+            </div>
         </form>
     </div>
 </div>
+
+
+
 <!-- affichage des messages d'erreurs contenus dans l'url -->
 <?php
     if(isset($_GET["error"])){
        
         switch($_GET["error"]){
             case "emptyinput":
-                echo "<p class='errror'><b>Erreur: Veuillez renseigner tous les champs!</b></p>";
+                echo "<p class='errror'><b>Erreur : Veuillez renseigner tous les champs !</b></p>";
                 break;
             case "unknownemail":
-                echo "<p class='errror'><b>Erreur: Aucun compte ne correspond à cette adresse mail!</b></p>";
+                echo "<p class='errror'><b>Erreur : Aucun compte ne correspond à cette adresse mail !</b></p>";
                 break;
             case "wrongpwd":
-                echo "<p class='errror'><b>Erreur: Mot de passe invalide!</b></p>";
+                echo "<p class='errror'><b>Erreur : Mot de passe invalide !</b></p>";
                 break;
             case "sqlerror":
-                echo "<p class='errror'><b>Erreur: Une erreur est survenue, veuillez réessayer.</b></p>";
+                echo "<p class='errror'><b>Erreur : Une erreur est survenue, veuillez réessayer.</b></p>";
                 break;
         }
     }
