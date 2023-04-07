@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Apr 04, 2023 at 05:51 PM
+-- Generation Time: Apr 07, 2023 at 12:24 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.1.17
 
@@ -32,6 +32,27 @@ CREATE TABLE `Cinéma` (
   `NomCine` varchar(50) NOT NULL,
   `Ville` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `Cinéma`
+--
+
+INSERT INTO `Cinéma` (`IdCine`, `NomCine`, `Ville`) VALUES
+(1, 'Cinéma Cité La Défense', 'Nanterre'),
+(2, 'Cinéma Issy-Les-Moulineaux', 'Boulogne-Billancourt'),
+(3, 'Cinéma Ciné Cité Rosny', 'Rosny-sous-Bois'),
+(4, 'Cinéma Cité O Parinor', 'Aulnay-sous-Bois'),
+(5, 'Cinéma Cité Créteil', 'Creteil'),
+(6, 'Cinéma Nanterre Coeur Université', 'Nanterre'),
+(7, 'Cinéma Brignais', 'Lyon'),
+(8, 'Cinéma Epinay-sur-Seine ', 'Epinay-sur-Saine'),
+(9, 'Cinéma Paris-Lilas', 'Paris'),
+(10, 'Cinéma Sarcelles My Place', 'Sarcelles'),
+(11, 'Cinéma Stade de France', 'Saint-Denis'),
+(12, 'Cinéma Alésia', 'Paris'),
+(13, 'Cinéma Aqualouevard', 'Paris '),
+(14, 'Cinéma Convention', 'Paris'),
+(15, 'Cinéma Saron - IMAX', 'Saran');
 
 -- --------------------------------------------------------
 
@@ -70,6 +91,32 @@ CREATE TABLE `Film` (
   `DuréeFilm` varchar(30) NOT NULL,
   `Producteur` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `Film`
+--
+
+INSERT INTO `Film` (`IdFilm`, `NomFilm`, `GenreFilm`, `DuréeFilm`, `Producteur`) VALUES
+(1, 'Le Seigneur des anneaux 3', 'Fantastique, Aventure', '3h 21min', 'Peter Jackson'),
+(2, 'Le Seigneur des anneaux 2', 'Fantastique, Aventure', '2h 59min', 'Peter Jackson'),
+(3, 'Le Seigneur des anneaux 1', 'Fantastique, Aventure', '2h 58min', 'Peter Jackson'),
+(4, 'Le Hobbit 3', 'Fantastique, Aventure', '2h 24min', 'Peter Jackson'),
+(5, 'Le Hobbit 2', 'Fantastique, Aventure', '2h 41min', 'Peter Jackson'),
+(6, 'Le Hobbit 1', 'Fantastique, Aventure', '2h 49min', 'Peter Jackson'),
+(7, 'Inception', ' Science fiction, Thriller', '2h 28min', 'Christopher Nolan'),
+(8, 'Vol au-dessus dun nid de coucou ', ' Drame', '2h 09min', 'Milos Forman'),
+(9, 'Princesse Mononoké', 'Drame, Animation', '2h 15min', 'Hayao Miyazaki'),
+(10, 'Le voyage de Chihiro', ' Animation, Aventure', ' 2h 05min', 'Hayao Miyazaki'),
+(11, 'Arrietty le petit monde des chapardeurs', 'Animation, Fantastique, Aventure', '1h 34min', 'Hiromasa Yonebayashi'),
+(12, 'La planète au trésor', 'Animation, Science fiction, Aventure', '1h 35min', 'Ron Clements'),
+(13, 'Kuzko', ' Animation, Aventure, Comédie', ' 1h 18min', 'Mark Dindal'),
+(14, 'Blood diamond', 'Aventure, Drame, Thriller', '2h 23min', 'Edward Zwick'),
+(15, 'Avengers', 'Action, Aventure, Science fiction', ' 2h 23min', 'Joss Whedon'),
+(16, 'Avengers Endgame', 'Action, Fantastique, Aventure', '3h 01min', 'Joe Russo'),
+(17, 'Avengers Infinity war', 'Action, Fantastique, Aventure', '2h 36min', 'Joe Russo'),
+(18, 'Iron man', ' Action, Science fiction', '2h 06min', 'Jon Favreau'),
+(19, 'Spider-man', 'Fantastique, Action', ' 2h 01min', ' Sam Raimi'),
+(20, 'Jumper', 'Aventure, Science fiction, Thriller', '1h 35min', 'Doug Liman');
 
 -- --------------------------------------------------------
 
@@ -143,7 +190,7 @@ ALTER TABLE `Séance`
 -- AUTO_INCREMENT for table `Cinéma`
 --
 ALTER TABLE `Cinéma`
-  MODIFY `IdCine` int NOT NULL AUTO_INCREMENT;
+  MODIFY `IdCine` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `Client`
@@ -155,7 +202,7 @@ ALTER TABLE `Client`
 -- AUTO_INCREMENT for table `Film`
 --
 ALTER TABLE `Film`
-  MODIFY `IdFilm` int NOT NULL AUTO_INCREMENT;
+  MODIFY `IdFilm` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `Réservation`

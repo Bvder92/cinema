@@ -1,4 +1,10 @@
-<?php session_start();?>
+<?php
+    session_start();
+    if (!isset($_SESSION["IdClient"])) {
+        header("location: login.php");
+        exit();
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,18 +17,22 @@
 </head>
 
 <body>
-    <h1>Bienvenue sur le site</h1>
-    <?php 
-    
-    if(!isset($_SESSION["IdClient"])){
-        echo "<ul><li><a href=\"signup.php\">S'inscrire</a></li><li><a href=\"login.php\">Se connecter</a></li> </ul>";
-    }
-    else{
-        echo '<h1>Bienvenue, ' . $_SESSION["PrenomClient"] . '!</h1>';
-        echo '<a href="include/logout_script.php"><u>Déconnexion</u></a>';
-    } 
-    
-    ?> 
+
+    <h1>Profil</h1>
+
+    <br>
+
+    <h2>Informations Personnelles</h2>
+
+    <ul>
+        <li>Nom: <?php echo $_SESSION["NomClient"] ?></li>
+        <li>Prenom: <?php echo $_SESSION["PrenomClient"] ?></li>
+        <li>Email: <?php echo $_SESSION["EmailClient"] ?></li>
+    </ul>
+
+    <br><br>
+    <h2>Réservations</h2>
+
 </body>
 
 </html>

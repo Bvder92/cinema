@@ -126,3 +126,4 @@ function loginUser($conn, $email, $mdp){
     header("location: ../profile.php"); //renvoie l'utilisateur à l'accueil
     exit();
 }
+
