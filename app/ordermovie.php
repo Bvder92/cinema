@@ -23,10 +23,11 @@ require_once 'include/Film.php';       //pour la classe Film
 
 $film = new Film($_GET["movie"], $conn);
 
-
 echo "<h2>" . $film->getNom() . "</h2>";
+echo "<p>" . $film->getProducteur() . " <br> " . $film->getGenre() . " | " . $film->getDuree() . "</p>";
 
-echo "<h4>" . $film->getProducteur() . "</h4>";
+echo "<br><br><h2>Séances Disponibles</h2>";
+$film->getSeances();
 
 ?>
 

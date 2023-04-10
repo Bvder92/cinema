@@ -127,3 +127,20 @@ function loginUser($conn, $email, $mdp){
     exit();
 }
 
+function getNomCine($conn, $id){
+    
+    $sql = "SELECT * FROM Cinéma WHERE IdCine = ?;";
+    $statement = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($statement, $sql)) {
+        header("location: ../index.html");
+        exit();
+    }
+    mysqli_stmt_bind_param($statement, "i", $id);
+    mysqli_stmt_execute($statement);
+
+    $result = mysqli_stmt_get_result($statement);
+    $row = mysqli_fetch_assoc($result);
+
+    return $row["NomCine"];
+}

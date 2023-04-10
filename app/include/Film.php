@@ -1,5 +1,7 @@
 <?php
 
+require_once 'functions.php';
+
 class Film 
 {
     private $idFilm;
@@ -7,6 +9,7 @@ class Film
     private $genreFilm;
     private $dureeFilm;
     private $producteur;
+    private $conn;
 
     function __construct($id, $conn){
 
@@ -24,9 +27,11 @@ class Film
         $result = mysqli_stmt_get_result($statement);
         $row = mysqli_fetch_assoc($result);
 
+        $this->conn = $conn;
         $this->idFilm = $row["IdFilm"];
         $this->nomFilm = $row["NomFilm"];
-        $this->dureeFilm = $row["GenreFilm"];
+        $this->dureeFilm = $row["DuréeFilm"];
+        $this->genreFilm = $row["GenreFilm"];
         $this->producteur = $row["Producteur"];
 
         if ($this->idFilm == ""){
@@ -53,6 +58,29 @@ class Film
 
     function getProducteur(){
         return $this->producteur;
+    }
+
+    function getSeances(){
+
+        $sql = "SELECT * FROM Séance WHERE RefFilm = ?;";
+
+        $statement = mysqli_stmt_init($this->conn);
+        if (!mysqli_stmt_prepare($statement, $sql)) {
+            header("location: ordermovie.php?error=1");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($statement, "i", $this->idFilm);
+        mysqli_stmt_execute($statement);
+
+        $result = mysqli_stmt_get_result($statement);
+
+        echo "<ul>";
+        while($row = mysqli_fetch_assoc($result)){
+            echo "<li>" . $row["DateSéance"] . " - " . getNomCine($this->conn, $row["RefCine"]) . "</li>";
+        }
+        echo "</ul>";
+
     }
 
 }
