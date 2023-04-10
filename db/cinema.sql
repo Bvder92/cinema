@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Apr 07, 2023 at 12:24 PM
+-- Generation Time: Apr 10, 2023 at 06:08 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.1.17
 
@@ -86,7 +86,7 @@ INSERT INTO `Client` (`IdClient`, `NomClient`, `PrenomClient`, `EmailClient`, `M
 
 CREATE TABLE `Film` (
   `IdFilm` int NOT NULL,
-  `NomFilm` varchar(50) NOT NULL,
+  `NomFilm` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `GenreFilm` varchar(50) NOT NULL,
   `DuréeFilm` varchar(30) NOT NULL,
   `Producteur` varchar(30) NOT NULL
@@ -97,14 +97,14 @@ CREATE TABLE `Film` (
 --
 
 INSERT INTO `Film` (`IdFilm`, `NomFilm`, `GenreFilm`, `DuréeFilm`, `Producteur`) VALUES
-(1, 'Le Seigneur des anneaux 3', 'Fantastique, Aventure', '3h 21min', 'Peter Jackson'),
-(2, 'Le Seigneur des anneaux 2', 'Fantastique, Aventure', '2h 59min', 'Peter Jackson'),
-(3, 'Le Seigneur des anneaux 1', 'Fantastique, Aventure', '2h 58min', 'Peter Jackson'),
-(4, 'Le Hobbit 3', 'Fantastique, Aventure', '2h 24min', 'Peter Jackson'),
-(5, 'Le Hobbit 2', 'Fantastique, Aventure', '2h 41min', 'Peter Jackson'),
-(6, 'Le Hobbit 1', 'Fantastique, Aventure', '2h 49min', 'Peter Jackson'),
+(1, 'Le Seigneur des anneaux : Le Retour du roi', 'Fantastique, Aventure', '3h 21min', 'Peter Jackson'),
+(2, 'Le Seigneur des anneaux : Les Deux Tours', 'Fantastique, Aventure', '2h 59min', 'Peter Jackson'),
+(3, 'Le Seigneur des anneaux : La Communauté de l\'anneau', 'Fantastique, Aventure', '2h 58min', 'Peter Jackson'),
+(4, 'Le Hobbit : la bataille des cinq armées', 'Fantastique, Aventure', '2h 24min', 'Peter Jackson'),
+(5, 'Le Hobbit : La désolation de Smaug', 'Fantastique, Aventure', '2h 41min', 'Peter Jackson'),
+(6, 'Le Hobbit : Un voyage inattendu', 'Fantastique, Aventure', '2h 49min', 'Peter Jackson'),
 (7, 'Inception', ' Science fiction, Thriller', '2h 28min', 'Christopher Nolan'),
-(8, 'Vol au-dessus dun nid de coucou ', ' Drame', '2h 09min', 'Milos Forman'),
+(8, 'Vol au-dessus d\'un nid de coucou ', ' Drame', '2h 09min', 'Milos Forman'),
 (9, 'Princesse Mononoké', 'Drame, Animation', '2h 15min', 'Hayao Miyazaki'),
 (10, 'Le voyage de Chihiro', ' Animation, Aventure', ' 2h 05min', 'Hayao Miyazaki'),
 (11, 'Arrietty le petit monde des chapardeurs', 'Animation, Fantastique, Aventure', '1h 34min', 'Hiromasa Yonebayashi'),
@@ -143,6 +143,14 @@ CREATE TABLE `Séance` (
   `RefFilm` int DEFAULT NULL,
   `RefCine` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `Séance`
+--
+
+INSERT INTO `Séance` (`IdSéance`, `DateSéance`, `RefFilm`, `RefCine`) VALUES
+(1, '2023-09-02', 20, 1),
+(3, '2023-07-28', 20, 2);
 
 --
 -- Indexes for dumped tables
@@ -214,7 +222,7 @@ ALTER TABLE `Réservation`
 -- AUTO_INCREMENT for table `Séance`
 --
 ALTER TABLE `Séance`
-  MODIFY `IdSéance` int NOT NULL AUTO_INCREMENT;
+  MODIFY `IdSéance` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
