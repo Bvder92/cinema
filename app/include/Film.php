@@ -9,6 +9,7 @@ class Film
     private $genreFilm;
     private $dureeFilm;
     private $producteur;
+    private $image;
     private $conn;
 
     function __construct($id, $conn){
@@ -33,6 +34,7 @@ class Film
         $this->dureeFilm = $row["DuréeFilm"];
         $this->genreFilm = $row["GenreFilm"];
         $this->producteur = $row["Producteur"];
+        $this->image = $row["ImageFilm"];
 
         if ($this->idFilm == ""){
             header("location: ordermovie.php?error=1");
@@ -60,7 +62,11 @@ class Film
         return $this->producteur;
     }
 
-    function getSeances(){
+    function getImage(){
+        return $this->image;
+    }
+
+    function getSeances($sort){
 
         $sql = "SELECT * FROM Séance WHERE RefFilm = ?;";
 

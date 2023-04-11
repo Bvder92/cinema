@@ -5,7 +5,7 @@
 
 //si on arrive sur cette sans avoir cliqué sur un film, on renvoie à la liste des films.
 if (!isset($_GET["movie"])){
-    header("location: index.html#films");
+    header("location: index.html#cinema");
     exit();
 }
 
@@ -22,12 +22,36 @@ require_once 'include/Film.php';       //pour la classe Film
 
 
 $film = new Film($_GET["movie"], $conn);
+$url = "ordermovie.php/movie=" . $film->getId();
 
 echo "<h2>" . $film->getNom() . "</h2>";
 echo "<p>" . $film->getProducteur() . " <br> " . $film->getGenre() . " | " . $film->getDuree() . "</p>";
+echo "<br><img src=\"" . $film->getImage() . "\">";
 
-echo "<br><br><h2>Séances Disponibles</h2>";
-$film->getSeances();
+echo "<br><br><h2>Séances Disponibles</h2><br>";
+
+?>
+
+<form action="" method ="post">
+
+    <label for="sort">Tri par date </label>
+    <select name="sort" id="sort">
+        <option value="Défaut">Défaut</option>
+        <option value="Croissant">Récent -> Ancien</option>
+        <option value="Décroissant">Ancien -> Récent</option>
+    </select>
+    <input type="submit" name="submit" value="trier">
+</form>
+
+<?php
+
+
+$sort = "Défaut";
+if(isset($_POST["submit"])){
+    $sort = $_POST["sort"];
+}
+echo "Vous avez choisi " . $sort;
+$film->getSeances($sort);
 
 ?>
 

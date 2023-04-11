@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Apr 10, 2023 at 06:08 PM
+-- Generation Time: Apr 11, 2023 at 06:02 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.1.17
 
@@ -89,34 +89,35 @@ CREATE TABLE `Film` (
   `NomFilm` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `GenreFilm` varchar(50) NOT NULL,
   `DuréeFilm` varchar(30) NOT NULL,
-  `Producteur` varchar(30) NOT NULL
+  `Producteur` varchar(30) NOT NULL,
+  `ImageFilm` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `Film`
 --
 
-INSERT INTO `Film` (`IdFilm`, `NomFilm`, `GenreFilm`, `DuréeFilm`, `Producteur`) VALUES
-(1, 'Le Seigneur des anneaux : Le Retour du roi', 'Fantastique, Aventure', '3h 21min', 'Peter Jackson'),
-(2, 'Le Seigneur des anneaux : Les Deux Tours', 'Fantastique, Aventure', '2h 59min', 'Peter Jackson'),
-(3, 'Le Seigneur des anneaux : La Communauté de l\'anneau', 'Fantastique, Aventure', '2h 58min', 'Peter Jackson'),
-(4, 'Le Hobbit : la bataille des cinq armées', 'Fantastique, Aventure', '2h 24min', 'Peter Jackson'),
-(5, 'Le Hobbit : La désolation de Smaug', 'Fantastique, Aventure', '2h 41min', 'Peter Jackson'),
-(6, 'Le Hobbit : Un voyage inattendu', 'Fantastique, Aventure', '2h 49min', 'Peter Jackson'),
-(7, 'Inception', ' Science fiction, Thriller', '2h 28min', 'Christopher Nolan'),
-(8, 'Vol au-dessus d\'un nid de coucou ', ' Drame', '2h 09min', 'Milos Forman'),
-(9, 'Princesse Mononoké', 'Drame, Animation', '2h 15min', 'Hayao Miyazaki'),
-(10, 'Le voyage de Chihiro', ' Animation, Aventure', ' 2h 05min', 'Hayao Miyazaki'),
-(11, 'Arrietty le petit monde des chapardeurs', 'Animation, Fantastique, Aventure', '1h 34min', 'Hiromasa Yonebayashi'),
-(12, 'La planète au trésor', 'Animation, Science fiction, Aventure', '1h 35min', 'Ron Clements'),
-(13, 'Kuzko', ' Animation, Aventure, Comédie', ' 1h 18min', 'Mark Dindal'),
-(14, 'Blood diamond', 'Aventure, Drame, Thriller', '2h 23min', 'Edward Zwick'),
-(15, 'Avengers', 'Action, Aventure, Science fiction', ' 2h 23min', 'Joss Whedon'),
-(16, 'Avengers Endgame', 'Action, Fantastique, Aventure', '3h 01min', 'Joe Russo'),
-(17, 'Avengers Infinity war', 'Action, Fantastique, Aventure', '2h 36min', 'Joe Russo'),
-(18, 'Iron man', ' Action, Science fiction', '2h 06min', 'Jon Favreau'),
-(19, 'Spider-man', 'Fantastique, Action', ' 2h 01min', ' Sam Raimi'),
-(20, 'Jumper', 'Aventure, Science fiction, Thriller', '1h 35min', 'Doug Liman');
+INSERT INTO `Film` (`IdFilm`, `NomFilm`, `GenreFilm`, `DuréeFilm`, `Producteur`, `ImageFilm`) VALUES
+(1, 'Le Seigneur des anneaux : Le Retour du roi', 'Fantastique, Aventure', '3h 21min', 'Peter Jackson', 'images/films/seigneur3.jpeg'),
+(2, 'Le Seigneur des anneaux : Les Deux Tours', 'Fantastique, Aventure', '2h 59min', 'Peter Jackson', 'images/films/seigneur2.jpeg'),
+(3, 'Le Seigneur des anneaux : La Communauté de l\'anneau', 'Fantastique, Aventure', '2h 58min', 'Peter Jackson', 'images/films/seigneur1.jpeg'),
+(4, 'Le Hobbit : la bataille des cinq armées', 'Fantastique, Aventure', '2h 24min', 'Peter Jackson', 'images/films/hobbit3.webp'),
+(5, 'Le Hobbit : La désolation de Smaug', 'Fantastique, Aventure', '2h 41min', 'Peter Jackson', 'images/films/hobbit2.jpeg'),
+(6, 'Le Hobbit : Un voyage inattendu', 'Fantastique, Aventure', '2h 49min', 'Peter Jackson', 'images/films/hobbit1.jpeg'),
+(7, 'Inception', ' Science fiction, Thriller', '2h 28min', 'Christopher Nolan', 'images/films/inception.jpeg'),
+(8, 'Vol au-dessus d\'un nid de coucou ', ' Drame', '2h 09min', 'Milos Forman', 'images/films/coucou.jpeg'),
+(9, 'Princesse Mononoké', 'Drame, Animation', '2h 15min', 'Hayao Miyazaki', 'images/films/momonoké.jpeg'),
+(10, 'Le voyage de Chihiro', ' Animation, Aventure', ' 2h 05min', 'Hayao Miyazaki', 'images/films/chihiro.jpeg'),
+(11, 'Arrietty le petit monde des chapardeurs', 'Animation, Fantastique, Aventure', '1h 34min', 'Hiromasa Yonebayashi', 'images/films/arrietty.jpeg'),
+(12, 'La planète au trésor', 'Animation, Science fiction, Aventure', '1h 35min', 'Ron Clements', 'images/films/trésor.jpeg'),
+(13, 'Kuzko', ' Animation, Aventure, Comédie', ' 1h 18min', 'Mark Dindal', 'images/films/kuzco.jpeg'),
+(14, 'Blood diamond', 'Aventure, Drame, Thriller', '2h 23min', 'Edward Zwick', 'images/films/blood.jpeg'),
+(15, 'Avengers', 'Action, Aventure, Science fiction', ' 2h 23min', 'Joss Whedon', 'images/films/avengers.jpeg'),
+(16, 'Avengers Endgame', 'Action, Fantastique, Aventure', '3h 01min', 'Joe Russo', 'images/films/endgame.jpeg'),
+(17, 'Avengers Infinity war', 'Action, Fantastique, Aventure', '2h 36min', 'Joe Russo', 'images/films/infinity.jpeg'),
+(18, 'Iron man', ' Action, Science fiction', '2h 06min', 'Jon Favreau', 'images/films/ironman.png'),
+(19, 'Spider-man', 'Fantastique, Action', ' 2h 01min', ' Sam Raimi', 'images/films/spiderman.jpeg'),
+(20, 'Jumper', 'Aventure, Science fiction, Thriller', '1h 35min', 'Doug Liman', 'images/films/jumper.jpeg');
 
 -- --------------------------------------------------------
 
