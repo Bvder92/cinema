@@ -13,3 +13,5 @@ if (isset($_POST["submit"])){
 
     loginUser($conn, $email, $mdp);
 }
+
+?>

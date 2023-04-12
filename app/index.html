@@ -26,7 +26,7 @@
             <li><a href="#menu">Menu</a></li>
             <li><a href="#films">Films</a></li>
             <li><a href="#cinema">Cinémas</a></li>
-            <li><a href="login.php" class="btn"><i class="fa-regular fa-user"></i></a></li>
+            <li><a href="login.php" class="user"><i class="fa-regular fa-user"></i></a></li>
 
         </ul>
     </header>
@@ -38,7 +38,7 @@
                 <div class="menu-text">
                     <span>Marvel Cinematic Universe</span>
                     <h1>Spiderman</h1>
-                    <a href="#" class="btn">Séances</a>
+                    <a href="#"><button class="btn">Séances</button></a>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                 <div class="menu-text">
                     <span>Le Seigneur des Anneaux</span>
                     <h1>Le Seigneur des anneaux <br> le marathon évènement</h1>
-                    <a href="#" class="btn">Séances</a>
+                    <a href="#"> <button class="btn">Séances</button></a>
                 </div>
             </div>
 
@@ -57,7 +57,7 @@
                 <div class="menu-text">
                     <span>Studio Ghibli</span>
                     <h1>Revivez les films de Miyazaki</h1>
-                    <a href="#" class="btn">Séances</a>
+                    <a href="#"><button class="btn">Séances</button></a>
                 </div>
             </div>
             
@@ -67,15 +67,14 @@
     </section>
 
     <section class="films" id="films">
+        
         <h2 class="titre">NOUVEAUTÉS</h2>
+        <hr>
             <div class="film-container">
 
                 <div class="box">
                     <div class="box-img">
                         <a href="ordermovie.php?movie=16"><img src="images/films/endgame.jpeg" alt="endgame"></a>
-                        <div class="middle">
-                            <div class="btn">Séances</div>
-                        </div>
                     </div>
                     <h3>Avengers : Endgame</h3>
                     <span>3h 01 min | Action, Fantastique, Aventure</span>
@@ -124,6 +123,7 @@
             <br>
             
         <h2 class="titre">A L'AFFICHE</h2>
+        <hr>
         <div class="film-container">
 
             <div class="box">
@@ -242,16 +242,15 @@
 
     <section class="liste-cinema" >
         <div class="cinema" id="cinema">
+            <hr>
             <h2 class="titre">CINEMAS</h2>
+
             <div class="search-container">
                 <input class="searchbar" id="searchbar" onkeyup="search_cinema()" type="text" name="search" placeholder="Rechercher votre Cinéma..">
-                <!--<span class="search-icon">
-                  <i class="fa fa-search"></i>
-                </span>-->
-              </div>
-
+                
+            </div>
+            
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                     <img src="https://www.defense-92.fr/wp-content/uploads/2020/12/colline-de-la-defense-dome-imax-.jpg">
                     <br>
@@ -267,7 +266,6 @@
 
             <!-- 2 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img  src="https://www.boxofficepro.fr/wp-content/uploads/sites/2/2022/09/IMG_5451-1024x683.jpg">
                 <br>
@@ -286,7 +284,6 @@
                 
                 <!-- 3 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img src="https://medias.businessimmo.com/default/0002/41/140497/ugc-rosny-2_admin.jpg">
                 <br>
@@ -303,7 +300,6 @@
 
                 <!-- 4 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img  src="http://idata.over-blog.com/2/65/16/29/2013NOVEMBRE/ugc-aulnay-parinor.jpg">
                 <br>
@@ -321,7 +317,6 @@
                 
                 <!-- 5 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/24/51/a3/ugc-cine-cite.jpg?w=1200&h=-1&s=1">
                 <br>
@@ -338,7 +333,6 @@
                 
                 <!-- 6 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img  src="https://cst.fr/wp-content/uploads/2020/03/CINEMA_CGR_EXTE-1.jpg">
                 <br><div class="cinema-name">
@@ -355,7 +349,6 @@
                 
                 <!-- 7 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img src="https://cdn-s-www.leprogres.fr/images/BB0D792A-2730-416C-B266-0A0101100B27/NW_raw/des-son-ouverture-le-mega-cgr-a-tape-fort-avec-15-salles-et-autant-de-films-a-l-affiche-photo-damien-lepetitgaland-1454705637.jpg">
                 <br>
@@ -375,7 +368,6 @@
                 <!-- 8 -->
                 
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img src="https://fr.web.img1.acsta.net/pictures/214/584/21458465_214533059.jpg/r_1472_939">
                 <br>
@@ -393,7 +385,6 @@
                 
                 <!-- 9 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img src="https://fr.web.img1.acsta.net/img/26/b1/26b171c3c8b44c793c49f90ee1123893.jpg/r_1472_983">
                 <br>
@@ -412,7 +403,6 @@
                 
                 <!-- 10 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img  src="https://www.boxofficepro.fr/wp-content/uploads/sites/2/2021/02/Photo-17-10-2017-17-10-05-scaled.jpg">
                 <br>
@@ -430,7 +420,6 @@
                 
                 <!-- 11 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img  src="https://img.annuaire-mairie.fr/img/logo/gaumont-saint-denis.jpg">
                 <div class="cinema-name">
@@ -446,7 +435,6 @@
                 
                 <!-- 12 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img src="https://3.bp.blogspot.com/-cEjCiic3L50/Wo2Hr806k2I/AAAAAAABRYw/aX_z4XGnrkwhNXtyBSX1oDwU5ZHm1aW5gCLcBGAs/s1600/Gaumont-Al%25C3%25A9sia.jpg">
                 <br>
@@ -461,7 +449,6 @@
                 
                 <!-- 13 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img src="https://salles-cinema.com/wp-content/uploads/2009/08/gaumont-aquaboulevard.jpg">
                 <br>
@@ -478,7 +465,6 @@
                     
                 <!-- 14 -->
             <div class="salle">
-                <hr class="style1"><hr>
                 <div class="cinema-info">
                 <img src="https://salles-cinema.com/wp-content/uploads/2016/04/cinema-gaumont-convention_01.jpg">
                 <br>
@@ -493,7 +479,7 @@
 
             <!-- 15 -->
             <div class="salle">
-                <hr class="style1"><hr>
+                
                 <div class="cinema-info">
                 <img src="https://www.ville-saran.fr/sites/default/files/documents/culture/cinema.jpg">
                 <br>
@@ -506,31 +492,13 @@
         </div>
     </section>
 
+    <section class="bas-de-page">
+        <div class="copyright">
+            <p>ce site a été réalisé dans le cadre d'un projet scolaire. Crédits : Badr Agrad, Naim Chefirat, Boubaker Mesbahi.</p>
+        </div>
+    </section>
 
 
-
-
-
-<!--   
-
-    <div id="Membre">
-        <h2>CONNECTEZ VOUS</h2>
-        <form name="form1" action="" method="post">
-            <label for="login">Identifiant :</label>
-            <input type="text" id="login" required>
-            <label for="pwd">Password : </label>
-            <input type="password" id="pwd" required>
-            <button type ="submit">Valider</button>
-        </form>
-
-        <h4><a href="member.html">Vous n'etes pas membre? Inscrivez vous !</a></h4>
-
-
-
-    </div>
-
-
--->
     <!-- script pour le menu défilant -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>

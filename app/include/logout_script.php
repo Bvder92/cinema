@@ -5,3 +5,5 @@ session_destroy();
 
 header("location: ../profile.php");
 exit();
+
+?>

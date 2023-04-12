@@ -29,12 +29,12 @@
             <li><a href="index.html">Menu</a></li>
             <li><a href="index.html">Films</a></li>
             <li><a href="index.html">Cinémas</a></li>
-            <li><a href="profile.php" class="btn"><i class="fa-regular fa-user"></i></a></li>
+            <li><a href="profile.php" class="user"><i class="fa-regular fa-user"></i></a></li>
 
         </ul>
 </header>
 
-<br><br><br><br><br>
+<br><br><br><br><br><br><br>
 <div class="wrapper-register">
     <div class="form-box login">
         <h2>S'inscrire</h2>
@@ -58,7 +58,7 @@
         </form>
     </div>     
 </div>
-
+<br>
 
 
 

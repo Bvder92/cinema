@@ -144,3 +144,5 @@ function getNomCine($conn, $id){
 
     return $row["NomCine"];
 }
+
+?>

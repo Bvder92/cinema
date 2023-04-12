@@ -1,3 +1,4 @@
+/********************************************** CORPS DE LA PAGE  **********************************************/
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('chemin/vers/le/fichier/helvetica-neue.woff2') format('woff2'), /* pour les navigateurs modernes */
@@ -17,7 +18,6 @@
     text-decoration: none;
 }
 
-
 body{
     /* color: #ED2939; */
     color: #ffffff;
@@ -32,6 +32,20 @@ a{
     text-decoration: none;
     color: #ffffff;
 }
+
+hr{
+    background-color: #ED2939;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 50%;
+    height: 2px;
+    border: none;
+    outline: none;
+    position: relative;
+    
+}
+
+/********************************************** EN-TETE **********************************************/
 
 header{
     position:fixed;
@@ -83,15 +97,38 @@ header{
     width:100%
 }
 
-.btn{
-    padding: 0.7rem 1.4rem;
+.user{
+    padding: 10px 20px;
     background: #ED2939;
     color: #ffffff;
+    border: none;
+    outline: none;
     font-weight: 400;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn{
+    width: 150px;
+    height: 45px;
+    background: #ED2939;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #92222b;
+    transition: ease-out 0.4s;
 }
 
 
+.btn:hover{
+    box-shadow: inset 150px 0 0 0 #92222b;
+}
+
+/********************************************** SWIPPER FILM **********************************************/
 
 .conatiner{
     width: 100%;
@@ -148,6 +185,8 @@ header{
     margin-bottom: 1rem;
 }
 
+/********************************************** LISTE FILMS **********************************************/
+
 .titre{
     max-width: 958px;
     margin-left: auto;
@@ -184,22 +223,7 @@ header{
     backface-visibility: hidden;
 }
 
-  
-.middle {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-}
-  
-  
-.box-img .middle :hover{
-    opacity: 1;
-}
+
   
 .box .box-img img:hover{
     transform: translateY(-10px);
@@ -207,12 +231,6 @@ header{
     opacity: 0.3;
 }
 
-.text{
-    background-color: #ED2939;
-    color: white;
-    font-size: 16px;
-    padding: 16px 32px;
-}
 
 .box h3{
     font-size: 0.9rem;
@@ -222,6 +240,8 @@ header{
 .box span{
     font-size:13px;
 }
+
+/********************************************** LISTE CINEMAS **********************************************/
 
 .liste-cinema{
     margin-top: auto;
@@ -237,20 +257,6 @@ header{
     color: #ffffff;
 } 
 
-/*.searchbar{
-    padding:15px;
-    border-radius: 10px;
-}
-
-.searchbar{
-    width: 100%;
-    display: flex;
-    background-color: #ffffff;
-    padding:15px;
-    border-radius: 60px;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-}*/
 
 .search-container {
     position: relative;
@@ -280,17 +286,6 @@ header{
     color: #999;
 }
 
-/*input[type=text]{
-    width: 30%;
-    -webkit-transition: width 0.15s ease-in-out;
-    transition: width 0.15s ease-in-out;
-}*/
-
-
-/*input[type=text]:focus{
-    width: 70%;
-}*/
-
 
 .salle{
     display: flex;
@@ -303,6 +298,12 @@ header{
     width:250px;
     height:200px;
     margin-right: 20px;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.salle img:hover{
+    transform: scale(1.1);
     border-radius: 10px;
 }
 
@@ -327,18 +328,34 @@ header{
     text-decoration: none;
     color: #ffffff;
 }
+
 .cinema-name h3 a:hover{
     text-decoration: underline;
 }
+
+/********************************************** BAS DE PAGE **********************************************/
+
+.copyright{
+    width: 100%; 
+    text-align: center;
+    padding:25px 0;
+    background-color: #92222b;
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 18px;
+    margin-top: 20px; 
+    
+}
+
+
+/********************************************** PAGES LOG-IN & SIGN UP **********************************************/
 
 .wrapper{
     position: relative;
     margin: auto;
     width: 400px;
     height: 440px;
-    background-color: transparent;
-    -webkit-filter: blur(5px);
-	filter: blur(5px);
+    background-color: #92222b;
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
@@ -352,10 +369,9 @@ header{
     margin: auto;
     width: 400px;
     height: 600px;
-    background-color: transparent;
+    background-color: #92222b;
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
-    backdrop-filter: blur(5px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
@@ -467,3 +483,4 @@ p{
 .login-register p a:hover{
     text-decoration: underline;
 }
+
