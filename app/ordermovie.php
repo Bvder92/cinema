@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/style1.css">
     <script src="https://kit.fontawesome.com/927b94a7cf.js" crossorigin="anonymous"></script>
-    <title>Se connecter</title>
+    <title>Réserver un film</title>
 </head>
 <body>
 
@@ -23,9 +23,14 @@
 
     if (isset($_GET["error"])){
         if ($_GET["errror"] == 1) {
-            echo "<h1>Une erreur est survenue</h1><br><br>";
+            echo "<script>alert('Une erreur est survenue')</script>";
+            header("location: index.html#films");
             exit();
         }
+    }
+
+    if (isset($_GET["success"])) {
+        echo "<script>alert('Séance Réservée!')</script>";
     }
 
     require_once 'include/bdd_script.php'; //pour la variable $conn
@@ -62,10 +67,17 @@
     if(isset($_POST["submit"])){
         $sort = $_POST["sort"];
     }
-    echo "Vous avez choisi " . $sort;
-    $film->getSeances($sort);
+    echo "Vous avez choisi " . $sort . "<br><br>";
+    $array = array();
+    $array = $film->getSeancesArray(); //tableau de tableaux, chaque entrée représente une ligne de la table Séances
     
+    echo '<h2>Séances Disponibles</h2><br><ul>';
+    for ($i = 0; $i<count($array); $i++){
+        echo "<li>" . getNomCine($conn, $array[$i][3]) . ", " . $array[$i][1];
+        //echo '  <a href="include/ordermovie_script.php?movie=' . $film->getId() . '&cine=' . $array[$i][3] . '">Réserver</a></li>';
+    }
+    echo "</ul>";
+
     ?>
 
 </body>
-</h

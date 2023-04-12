@@ -89,6 +89,23 @@ class Film
 
     }
 
+    function getSeancesArray(){
+        $sql = "SELECT * FROM Séance WHERE RefFilm = ?;";
+
+        $statement = mysqli_stmt_init($this->conn);
+        if (!mysqli_stmt_prepare($statement, $sql)) {
+            header("location: ordermovie.php?error=1");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($statement, "i", $this->idFilm);
+        mysqli_stmt_execute($statement);
+
+        $result = mysqli_stmt_get_result($statement);
+
+        $array = mysqli_fetch_all($result, MYSQLI_NUM); //tableau de tableaux associatifs, chaque entrée représente une ligne de la table
+        return $array;
+    }
 }
 
 ?>
