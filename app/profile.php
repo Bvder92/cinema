@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style1.css">
-    <title>Accueil</title>
+    <title>Profil</title>
 </head>
 
 <body>
@@ -29,6 +29,8 @@
         <li>Prenom: <?php echo $_SESSION["PrenomClient"] ?></li>
         <li>Email: <?php echo $_SESSION["EmailClient"] ?></li>
     </ul>
+
+    <a href="include/logout_script.php">Déconnexion</a>
 
     <br><br>
     <h2>Réservations</h2>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Apr 12, 2023 at 05:37 PM
+-- Generation Time: Apr 13, 2023 at 06:28 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.1.17
 
@@ -131,6 +131,25 @@ CREATE TABLE `Réservation` (
   `RefClient` int DEFAULT NULL,
   `RefSéance` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `Réservation`
+--
+
+INSERT INTO `Réservation` (`IdRéservation`, `DateRéservation`, `RefClient`, `RefSéance`) VALUES
+(1, '2023-04-13', NULL, 5),
+(2, '2023-04-13', NULL, 5),
+(3, '2023-04-13', NULL, 11),
+(4, '2023-04-13', 7, 11),
+(5, '2023-04-13', 4, 194),
+(6, '2023-04-13', 4, 14),
+(7, '2023-04-13', 7, 194),
+(8, '2023-04-13', 7, 157),
+(9, '2023-04-13', 7, 18),
+(10, '2023-04-13', 7, 18),
+(11, '2023-04-13', 7, 98),
+(12, '2023-04-13', 7, 98),
+(13, '2023-04-13', 7, 98);
 
 -- --------------------------------------------------------
 
@@ -449,7 +468,10 @@ INSERT INTO `Séance` (`IdSéance`, `DateSéance`, `RefFilm`, `RefCine`) VALUES
 (301, '2023-05-10', 12, 15),
 (302, '2023-05-11', 20, 15),
 (303, '2023-05-12', 15, 15),
-(304, '2023-05-13', 17, 15);
+(304, '2023-05-13', 17, 15),
+(305, '2023-05-09', 2, 2),
+(306, '2023-05-08', 3, 1),
+(313, '2023-04-13', 3, 1);
 
 --
 -- Indexes for dumped tables
@@ -515,13 +537,13 @@ ALTER TABLE `Film`
 -- AUTO_INCREMENT for table `Réservation`
 --
 ALTER TABLE `Réservation`
-  MODIFY `IdRéservation` int NOT NULL AUTO_INCREMENT;
+  MODIFY `IdRéservation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `Séance`
 --
 ALTER TABLE `Séance`
-  MODIFY `IdSéance` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=305;
+  MODIFY `IdSéance` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=314;
 
 --
 -- Constraints for dumped tables

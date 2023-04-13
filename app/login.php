@@ -1,3 +1,11 @@
+<?php 
+    session_start();
+    if (isset($_SESSION["IdClient"])) {
+        header("location: profile.php"); //si l'utilisateur s'est déjà connecté, redirection vers son profil
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,22 +27,7 @@
         }
     </style>
 
-    <header>
-        <div id="logo">
-            <img src="images/logo-cinema.png" alt="logo1" height="%30" width="30%">
-        </div>
-        <ul class="navbar">
-            <li><a href="index.html">Menu</a></li>
-            <li><a href="index.html">Films</a></li>
-            <li><a href="index.html">Cinémas</a></li>
-            <li><a href="profile.php" class="user"><i class="fa-regular fa-user"></i></a></li>
-
-        </ul>
-    </header>
-  
-
-    
-    
+   <?php include_once 'include/header.php'; ?>
 
 <br><br><br><br><br><br><br>
 
@@ -80,8 +73,6 @@
                 break;
             case "sqlerror":
                 echo "<p class='errror'><b>Erreur : Une erreur est survenue, veuillez réessayer.</b></p>";
-
-
                 break;
         }
     }

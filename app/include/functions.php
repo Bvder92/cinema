@@ -145,4 +145,41 @@ function getNomCine($conn, $id){
     return $row["NomCine"];
 }
 
-?>
+function reserverSeance($conn, $idClient, $idSéance){
+    
+    $sql = "INSERT INTO Réservation(DateRéservation, RefClient, RefSéance) VALUES(?, ?, ?);";
+    $date = date("Y-m-d");
+
+    $statement = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($statement, $sql)) {
+        header("location: ../ordermovie.php?error=sqlerror");
+        exit();
+    }
+    mysqli_stmt_bind_param($statement, "sii", $date, $idClient, $idSéance);
+    mysqli_stmt_execute($statement);
+
+    mysqli_stmt_close($statement);
+}
+
+//vérifie que l'utilisateur soit connecté, et la séance pas déjà réservée
+function showButton($conn, $idClient, $idSéance, $i){
+
+    $sql = "SELECT * FROM Réservation WHERE RefClient = ? AND RefSéance = ?;";
+    $statement = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($statement, $sql)) {
+        header("location: ../index.html");
+        exit();
+    }
+    mysqli_stmt_bind_param($statement, "ii", $idClient, $idSéance);
+    mysqli_stmt_execute($statement);
+
+    $result = mysqli_stmt_get_result($statement);
+
+    if( $row = mysqli_fetch_assoc($result)){ //la séance est déjà réservée
+        echo '<br><button style="opacity: 0.6; cursor: not-allowed">Réservée</button>';
+    }
+    else{
+        echo ' <form method="post"><input type="submit" name="reserver' . $i .'" value="Réserver"></form></li>';
+    }
+}

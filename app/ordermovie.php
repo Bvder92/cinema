@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    include_once 'include/header.php';
+    if(!isset($_SESSION["IdClient"])){
+        echo '<script>alert("Veulliez vous connecter pour accéder à cette page (pour l\'instant);</script>';
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,11 +35,11 @@
             header("location: index.html#films");
             exit();
         }
+        if ($_GET["errror"] == 0) {
+            echo "<script>alert('Séance réservée avec succès')</script>";
+        }
     }
 
-    if (isset($_GET["success"])) {
-        echo "<script>alert('Séance Réservée!')</script>";
-    }
 
     require_once 'include/bdd_script.php'; //pour la variable $conn
     require_once 'include/functions.php';  //au cas ou
@@ -69,12 +77,20 @@
     }
     echo "Vous avez choisi " . $sort . "<br><br>";
     $array = array();
+    //array[x][0] = IdSéance, [x][1] = DateSéance, [x][2] = RefFilm, [x][3] = RefCine
     $array = $film->getSeancesArray(); //tableau de tableaux, chaque entrée représente une ligne de la table Séances
     
     echo '<h2>Séances Disponibles</h2><br><ul>';
     for ($i = 0; $i<count($array); $i++){
         echo "<li>" . getNomCine($conn, $array[$i][3]) . ", " . $array[$i][1];
-        //echo '  <a href="include/ordermovie_script.php?movie=' . $film->getId() . '&cine=' . $array[$i][3] . '">Réserver</a></li>';
+        //echo ' <form method="post"><input type="submit" name="reserver' . $i .'" value="Réserver"></form></li>';
+        showButton($conn, $_SESSION["IdClient"], $array[$i][0], $i);
+        
+        //si le bouton "Réserver a été pressé, on réserve la séance
+        if(isset($_POST["reserver" . $i])){
+            reserverSeance($conn, $_SESSION["IdClient"], $array[$i][0]);
+            echo '<p>Vous avez réservé la séance' . $array[$i][0] . ' ( ' . $array[$i][1] . ' )</p>';
+        }
     }
     echo "</ul>";
 
