@@ -27,7 +27,7 @@
         }
     </style>
 
-   <?php include_once 'include/header.php'; ?>
+   <?php include_once 'include/header2.php'; ?>
 
 <br><br><br><br><br><br><br>
 

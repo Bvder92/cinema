@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    <?php include_once 'include/header2.php'; ?>
 
     <h1>Profil</h1>
 

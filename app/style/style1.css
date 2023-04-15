@@ -58,8 +58,16 @@ header{
     justify-content: space-between;
     padding: 20px 100px; 
     transition: 0.5s;
-   
 }
+
+header.shadow{
+    background: #ffffff;
+}
+
+header.shadow a{
+    color:black; 
+}
+
 
 .logo{
     text-transform: uppercase;
@@ -194,7 +202,7 @@ header{
     font-size: 1.2rem;
     font-weight: 500;
     text-transform: uppercase;
-    border-bottom: 1px;
+    border-bottom: 1px solid #ED2939;
 }
 
 .film-container{
@@ -484,3 +492,5 @@ p{
     text-decoration: underline;
 }
 
+
+/********************************************** ORDER MOVIE **********************************************/

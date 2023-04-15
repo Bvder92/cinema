@@ -40,6 +40,7 @@
         }
     }
 
+    include_once 'include/header2.php';  //inclure le header 
 
     require_once 'include/bdd_script.php'; //pour la variable $conn
     require_once 'include/functions.php';  //au cas ou
@@ -52,6 +53,9 @@
     echo "<h2>" . $film->getNom() . "</h2>";
     echo "<p>" . $film->getProducteur() . " <br> " . $film->getGenre() . " | " . $film->getDuree() . "</p>";
     echo "<br><img src=\"" . $film->getImage() . "\">";
+    echo "<iframe width='1289' height='540' src=\"" . $film->getbande_annonce() . "\"  title='bande_annonce' 
+    frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+    allowfullscreen></iframe>"
 
     echo "<br><br><h2>Séances Disponibles</h2><br>";
 

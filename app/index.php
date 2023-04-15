@@ -17,8 +17,16 @@
 </head>
 <body>
 <script src="/include/main.js"></script>
-
+    
     <?php include_once 'include/header.php'; ?>
+    <script>
+        let header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+        header.classList.toggle('shadow', window.scrollY > 0);
+        }); 
+    </script>
+
     <section class="menu swiper" id="menu">
         <div class="swiper-wrapper">
             <div class="swiper-slide conatiner">
@@ -57,7 +65,7 @@
     <section class="films" id="films">
         
         <h2 class="titre">NOUVEAUTÉS</h2>
-        <hr>
+        
             <div class="film-container">
 
                 <div class="box">
@@ -111,7 +119,7 @@
             <br>
             
         <h2 class="titre">A L'AFFICHE</h2>
-        <hr>
+        
         <div class="film-container">
 
             <div class="box">
@@ -230,7 +238,7 @@
 
     <section class="liste-cinema" >
         <div class="cinema" id="cinema">
-            <hr>
+        
             <h2 class="titre">CINEMAS</h2>
 
             <div class="search-container">
