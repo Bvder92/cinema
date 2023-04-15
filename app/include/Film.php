@@ -66,30 +66,7 @@ class Film
         return $this->image;
     }
 
-    function getSeances($sort){
-
-        $sql = "SELECT * FROM Séance WHERE RefFilm = ?;";
-
-        $statement = mysqli_stmt_init($this->conn);
-        if (!mysqli_stmt_prepare($statement, $sql)) {
-            header("location: ordermovie.php?error=1");
-            exit();
-        }
-
-        mysqli_stmt_bind_param($statement, "i", $this->idFilm);
-        mysqli_stmt_execute($statement);
-
-        $result = mysqli_stmt_get_result($statement);
-
-        echo "<ul>";
-        while($row = mysqli_fetch_assoc($result)){
-            echo "<li>" . $row["DateSéance"] . " - " . getNomCine($this->conn, $row["RefCine"]) . "</li>";
-        }
-        echo "</ul>";
-
-    }
-
-    function getSeancesArray(){
+    function getSeances(){
         $sql = "SELECT * FROM Séance WHERE RefFilm = ?;";
 
         $statement = mysqli_stmt_init($this->conn);
@@ -105,6 +82,24 @@ class Film
 
         $array = mysqli_fetch_all($result, MYSQLI_NUM); //tableau de tableaux associatifs, chaque entrée représente une ligne de la table
         return $array;
+    }
+
+    function getBandeAnnonce(){
+        $sql = "SELECT * FROM Film WHERE IdFilm = ?;";
+
+        $statement = mysqli_stmt_init($this->conn);
+        if (!mysqli_stmt_prepare($statement, $sql)) {
+            header("location: ordermovie.php?error=1");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($statement, "i", $this->idFilm);
+        mysqli_stmt_execute($statement);
+
+        $result = mysqli_stmt_get_result($statement);
+
+        $row = mysqli_fetch_assoc($result);
+        return $row["BandeAnnonceFilm"];
     }
 }
 

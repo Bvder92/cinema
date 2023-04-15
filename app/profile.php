@@ -32,6 +32,7 @@
     </ul>
 
     <a href="include/logout_script.php">Déconnexion</a>
+    <a href="index.php">Accueil</a>
 
     <br><br>
     <h2>Réservations</h2>

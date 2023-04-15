@@ -41,21 +41,19 @@
     }
 
     include_once 'include/header2.php';  //inclure le header 
-
     require_once 'include/bdd_script.php'; //pour la variable $conn
     require_once 'include/functions.php';  //au cas ou
     require_once 'include/Film.php';       //pour la classe Film
 
 
     $film = new Film($_GET["movie"], $conn);
-    $url = "ordermovie.php/movie=" . $film->getId();
 
     echo "<h2>" . $film->getNom() . "</h2>";
     echo "<p>" . $film->getProducteur() . " <br> " . $film->getGenre() . " | " . $film->getDuree() . "</p>";
     echo "<br><img src=\"" . $film->getImage() . "\">";
-    echo "<iframe width='1289' height='540' src=\"" . $film->getbande_annonce() . "\"  title='bande_annonce' 
+    echo "<iframe width='1289' height='540' src=\"" . $film->getBandeAnnonce() . "\"  title='bande_annonce' 
     frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-    allowfullscreen></iframe>"
+    allowfullscreen></iframe>";
 
     echo "<br><br><h2>Séances Disponibles</h2><br>";
 
@@ -72,28 +70,33 @@
         <input type="submit" name="submit" value="trier">
     </form>
 
-    <?php
 
+    <?php
 
     $sort = "Défaut";
     if(isset($_POST["submit"])){
         $sort = $_POST["sort"];
     }
     echo "Vous avez choisi " . $sort . "<br><br>";
+
     $array = array();
-    //array[x][0] = IdSéance, [x][1] = DateSéance, [x][2] = RefFilm, [x][3] = RefCine
-    $array = $film->getSeancesArray(); //tableau de tableaux, chaque entrée représente une ligne de la table Séances
+    $array = $film->getSeances(); //tableau de tableaux, chaque entrée représente une ligne de la table Séances
     
-    echo '<h2>Séances Disponibles</h2><br><ul>';
+    echo '<ul>';
+
     for ($i = 0; $i<count($array); $i++){
-        echo "<li>" . getNomCine($conn, $array[$i][3]) . ", " . $array[$i][1];
-        //echo ' <form method="post"><input type="submit" name="reserver' . $i .'" value="Réserver"></form></li>';
-        showButton($conn, $_SESSION["IdClient"], $array[$i][0], $i);
+        $IdSéance = $array[$i][0];
+        $DateSéance = $array[$i][1];
+        $RefFilm = $array[$i][2];
+        $RefCine = $array[$i][3];
+
+        echo "<li>" . getNomCine($conn, $RefCine) . ", " . $DateSéance;
+        showButton($conn, $_SESSION["IdClient"], $IdSéance, $i); //affiche le bouton "réserver" si les conditions sont bonnes
         
         //si le bouton "Réserver a été pressé, on réserve la séance
         if(isset($_POST["reserver" . $i])){
-            reserverSeance($conn, $_SESSION["IdClient"], $array[$i][0]);
-            echo '<p>Vous avez réservé la séance' . $array[$i][0] . ' ( ' . $array[$i][1] . ' )</p>';
+            reserverSeance($conn, $_SESSION["IdClient"], $IdSéance);
+            echo '<script>alert("Vous avez réservé la séance' . $IdSéance . ' , ' . $DateSéance . ' ");</script>';
         }
     }
     echo "</ul>";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Apr 13, 2023 at 06:28 PM
+-- Generation Time: Apr 15, 2023 at 05:53 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.1.17
 
@@ -90,34 +90,35 @@ CREATE TABLE `Film` (
   `GenreFilm` varchar(50) NOT NULL,
   `DuréeFilm` varchar(30) NOT NULL,
   `Producteur` varchar(30) NOT NULL,
-  `ImageFilm` varchar(128) DEFAULT NULL
+  `ImageFilm` varchar(128) DEFAULT NULL,
+  `BandeAnnonceFilm` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `Film`
 --
 
-INSERT INTO `Film` (`IdFilm`, `NomFilm`, `GenreFilm`, `DuréeFilm`, `Producteur`, `ImageFilm`) VALUES
-(1, 'Le Seigneur des anneaux : Le Retour du roi', 'Fantastique, Aventure', '3h 21min', 'Peter Jackson', 'images/films/seigneur3.jpeg'),
-(2, 'Le Seigneur des anneaux : Les Deux Tours', 'Fantastique, Aventure', '2h 59min', 'Peter Jackson', 'images/films/seigneur2.jpeg'),
-(3, 'Le Seigneur des anneaux : La Communauté de l\'anneau', 'Fantastique, Aventure', '2h 58min', 'Peter Jackson', 'images/films/seigneur1.jpeg'),
-(4, 'Le Hobbit : la bataille des cinq armées', 'Fantastique, Aventure', '2h 24min', 'Peter Jackson', 'images/films/hobbit3.webp'),
-(5, 'Le Hobbit : La désolation de Smaug', 'Fantastique, Aventure', '2h 41min', 'Peter Jackson', 'images/films/hobbit2.jpeg'),
-(6, 'Le Hobbit : Un voyage inattendu', 'Fantastique, Aventure', '2h 49min', 'Peter Jackson', 'images/films/hobbit1.jpeg'),
-(7, 'Inception', ' Science fiction, Thriller', '2h 28min', 'Christopher Nolan', 'images/films/inception.jpeg'),
-(8, 'Vol au-dessus d\'un nid de coucou ', ' Drame', '2h 09min', 'Milos Forman', 'images/films/coucou.jpeg'),
-(9, 'Princesse Mononoké', 'Drame, Animation', '2h 15min', 'Hayao Miyazaki', 'images/films/momonoké.jpeg'),
-(10, 'Le voyage de Chihiro', ' Animation, Aventure', ' 2h 05min', 'Hayao Miyazaki', 'images/films/chihiro.jpeg'),
-(11, 'Arrietty le petit monde des chapardeurs', 'Animation, Fantastique, Aventure', '1h 34min', 'Hiromasa Yonebayashi', 'images/films/arrietty.jpeg'),
-(12, 'La planète au trésor', 'Animation, Science fiction, Aventure', '1h 35min', 'Ron Clements', 'images/films/trésor.jpeg'),
-(13, 'Kuzko', ' Animation, Aventure, Comédie', ' 1h 18min', 'Mark Dindal', 'images/films/kuzco.jpeg'),
-(14, 'Blood diamond', 'Aventure, Drame, Thriller', '2h 23min', 'Edward Zwick', 'images/films/blood.jpeg'),
-(15, 'Avengers', 'Action, Aventure, Science fiction', ' 2h 23min', 'Joss Whedon', 'images/films/avengers.jpeg'),
-(16, 'Avengers Endgame', 'Action, Fantastique, Aventure', '3h 01min', 'Joe Russo', 'images/films/endgame.jpeg'),
-(17, 'Avengers Infinity war', 'Action, Fantastique, Aventure', '2h 36min', 'Joe Russo', 'images/films/infinity.jpeg'),
-(18, 'Iron man', ' Action, Science fiction', '2h 06min', 'Jon Favreau', 'images/films/ironman.png'),
-(19, 'Spider-man', 'Fantastique, Action', ' 2h 01min', ' Sam Raimi', 'images/films/spiderman.jpeg'),
-(20, 'Jumper', 'Aventure, Science fiction, Thriller', '1h 35min', 'Doug Liman', 'images/films/jumper.jpeg');
+INSERT INTO `Film` (`IdFilm`, `NomFilm`, `GenreFilm`, `DuréeFilm`, `Producteur`, `ImageFilm`, `BandeAnnonceFilm`) VALUES
+(1, 'Le Seigneur des anneaux : Le Retour du roi', 'Fantastique, Aventure', '3h 21min', 'Peter Jackson', 'images/films/seigneur3.jpeg', 'https://www.youtube.com/watch?v=RCuDRcK0BBM%22'),
+(2, 'Le Seigneur des anneaux : Les Deux Tours', 'Fantastique, Aventure', '2h 59min', 'Peter Jackson', 'images/films/seigneur2.jpeg', 'https://www.youtube.com/watch?v=c9blKqmyeV4%22'),
+(3, 'Le Seigneur des anneaux : La Communauté de l\'anneau', 'Fantastique, Aventure', '2h 58min', 'Peter Jackson', 'images/films/seigneur1.jpeg', 'https://www.youtube.com/watch?v=nalLU8i4zgs%22'),
+(4, 'Le Hobbit : la bataille des cinq armées', 'Fantastique, Aventure', '2h 24min', 'Peter Jackson', 'images/films/hobbit3.webp', 'https://www.youtube.com/watch?v=UeJRHbC_BGA%22'),
+(5, 'Le Hobbit : La désolation de Smaug', 'Fantastique, Aventure', '2h 41min', 'Peter Jackson', 'images/films/hobbit2.jpeg', 'https://www.youtube.com/watch?v=bvKLagxYhrc%22'),
+(6, 'Le Hobbit : Un voyage inattendu', 'Fantastique, Aventure', '2h 49min', 'Peter Jackson', 'images/films/hobbit1.jpeg', 'https://www.youtube.com/watch?v=tiy7peMH3g8%22'),
+(7, 'Inception', ' Science fiction, Thriller', '2h 28min', 'Christopher Nolan', 'images/films/inception.jpeg', 'https://www.youtube.com/watch?v=HcoZbHBDHQA%22'),
+(8, 'Vol au-dessus d\'un nid de coucou ', ' Drame', '2h 09min', 'Milos Forman', 'images/films/coucou.jpeg', 'https://www.youtube.com/watch?v=OXrcDonY-B8%22'),
+(9, 'Princesse Mononoké', 'Drame, Animation', '2h 15min', 'Hayao Miyazaki', 'images/films/momonoké.jpeg', 'https://www.youtube.com/watch?v=4OiMOHRDs14%22'),
+(10, 'Le voyage de Chihiro', ' Animation, Aventure', ' 2h 05min', 'Hayao Miyazaki', 'images/films/chihiro.jpeg', 'https://www.youtube.com/watch?v=EhIZrZQoHuA%22'),
+(11, 'Arrietty le petit monde des chapardeurs', 'Animation, Fantastique, Aventure', '1h 34min', 'Hiromasa Yonebayashi', 'images/films/arrietty.jpeg', 'https://www.youtube.com/watch?v=RYwYgH9uA_8%22'),
+(12, 'La planète au trésor', 'Animation, Science fiction, Aventure', '1h 35min', 'Ron Clements', 'images/films/trésor.jpeg', 'https://www.youtube.com/watch?v=ZLvH-92GvaI%22'),
+(13, 'Kuzko', ' Animation, Aventure, Comédie', ' 1h 18min', 'Mark Dindal', 'images/films/kuzco.jpeg', 'https://www.youtube.com/watch?v=f9Sb738xnas%22'),
+(14, 'Blood diamond', 'Aventure, Drame, Thriller', '2h 23min', 'Edward Zwick', 'images/films/blood.jpeg', 'https://www.youtube.com/watch?v=yknIZsvQjG4%22'),
+(15, 'Avengers', 'Action, Aventure, Science fiction', ' 2h 23min', 'Joss Whedon', 'images/films/avengers.jpeg', 'https://www.youtube.com/watch?v=b-kTeJhHOhc%22'),
+(16, 'Avengers Endgame', 'Action, Fantastique, Aventure', '3h 01min', 'Joe Russo', 'images/films/endgame.jpeg', 'https://www.youtube.com/watch?v=wV-Q0o2OQjQ%22'),
+(17, 'Avengers Infinity war', 'Action, Fantastique, Aventure', '2h 36min', 'Joe Russo', 'images/films/infinity.jpeg', 'https://www.youtube.com/watch?v=eIWs2IUr3Vs%22'),
+(18, 'Iron man', ' Action, Science fiction', '2h 06min', 'Jon Favreau', 'images/films/ironman.png', 'https://www.youtube.com/watch?v=rDCTb9Gp2qk%22'),
+(19, 'Spider-man', 'Fantastique, Action', ' 2h 01min', ' Sam Raimi', 'images/films/spiderman.jpeg', 'https://www.youtube.com/watch?v=t06RUxPbp_c%22'),
+(20, 'Jumper', 'Aventure, Science fiction, Thriller', '1h 35min', 'Doug Liman', 'images/films/jumper.jpeg', 'https://www.youtube.com/watch?v=DtacNQkFHvo%22');
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,15 @@ INSERT INTO `Réservation` (`IdRéservation`, `DateRéservation`, `RefClient`, `
 (10, '2023-04-13', 7, 18),
 (11, '2023-04-13', 7, 98),
 (12, '2023-04-13', 7, 98),
-(13, '2023-04-13', 7, 98);
+(13, '2023-04-13', 7, 98),
+(14, '2023-04-15', 7, 15),
+(15, '2023-04-15', 7, 15),
+(16, '2023-04-15', 7, 195),
+(17, '2023-04-15', 7, 195),
+(18, '2023-04-15', 7, 115),
+(19, '2023-04-15', 7, 115),
+(20, '2023-04-15', 7, 116),
+(21, '2023-04-15', 7, 116);
 
 -- --------------------------------------------------------
 
@@ -537,7 +546,7 @@ ALTER TABLE `Film`
 -- AUTO_INCREMENT for table `Réservation`
 --
 ALTER TABLE `Réservation`
-  MODIFY `IdRéservation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `IdRéservation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `Séance`
