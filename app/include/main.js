@@ -1,6 +1,5 @@
 
 
-
 function search_cinema() {
     let input = document.getElementById('searchbar').value
     input=input.toLowerCase();

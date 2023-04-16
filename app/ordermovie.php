@@ -18,6 +18,14 @@
 </head>
 <body>
 
+    <script> //script pour la navbar qui devient opaque 
+        let header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+        header.classList.toggle('shadow', window.scrollY > 0);
+        }); 
+    </script>
+
     <?php
 
     //on arrive sur cette page en cliquant sur le bouton 'réserver' d'un film.
@@ -45,19 +53,52 @@
     require_once 'include/functions.php';  //au cas ou
     require_once 'include/Film.php';       //pour la classe Film
 
+    
 
     $film = new Film($_GET["movie"], $conn);
 
-    echo "<h2>" . $film->getNom() . "</h2>";
-    echo "<p>" . $film->getProducteur() . " <br> " . $film->getGenre() . " | " . $film->getDuree() . "</p>";
-    echo "<br><img src=\"" . $film->getImage() . "\">";
-    echo "<iframe width='1289' height='540' src=\"" . $film->getBandeAnnonce() . "\"  title='bande_annonce' 
-    frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-    allowfullscreen></iframe>";
-
-    echo "<br><br><h2>Séances Disponibles</h2><br>";
+    echo "<br><br><br><br><br><br><br>";
 
     ?>
+    <!-- <div class="video">
+            <iframe width="100%" height="500" src="<?php echo $film->getBandeAnnonce(); ?>" 
+            title="bande_annonce" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen></iframe>
+    </div>
+    -->
+
+    <script>
+        const playIcon = document.querySelector('.play-icon');
+        const bandeAnnonceUrl = '<?php echo $film->getBandeAnnonce(); ?>';
+
+        playIcon.addEventListener('click', () => {
+        window.location.href = bandeAnnonceUrl;
+        });
+    </script>
+
+    <div class="movie-order">
+        <div class="film-details">
+            <img class="film-image" src="<?php echo $film->getImage(); ?>" alt="<?php echo $film->getNom(); ?>" width="200" height="275">
+            
+            <h1 class="film-title"><?php echo $film->getNom(); ?></h1>
+            <div class="film-info">
+                <span> <?php echo $film->getProducteur(); ?> </span>
+                <div class="tags"> 
+                    <span><?php echo $film->getGenre(); ?></span> 
+                    <span><?php echo $film->getDuree(); ?></span>
+                </div>
+            </div>
+            <div class="play-icon">
+                <i class="fa-light fa-circle-play"></i>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <div class="titre">
+        <h2>Séances Disponibles</h2>
+    </div>
 
     <form action="" method ="post">
 

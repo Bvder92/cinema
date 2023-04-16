@@ -33,17 +33,7 @@ a{
     color: #ffffff;
 }
 
-hr{
-    background-color: #ED2939;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    width: 50%;
-    height: 2px;
-    border: none;
-    outline: none;
-    position: relative;
-    
-}
+
 
 /********************************************** EN-TETE **********************************************/
 
@@ -494,3 +484,85 @@ p{
 
 
 /********************************************** ORDER MOVIE **********************************************/
+
+/*.movie-order {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.film-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.film-image {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.film-title {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.film-meta {
+    font-size: 16px;
+    margin: 0;
+}*/
+
+.movie-order{
+    position: relative;
+    min-height: 540px;
+    margin-top: 5rem !important;
+}
+
+.film-image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+    filter: brightness(50%);
+    
+}
+
+
+.film-info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+}
+
+.film-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+.tags{
+    display: flex;
+    align-items: center;
+    column-gap: 8px; 
+    margin: 1rem 0;
+}
+
+.tags span{
+    padding: 0px 4px;
+    color: #ffffff;
+    background-color: #969892;
+    border-radius: 4px;
+}
+
