@@ -254,7 +254,7 @@
                     <img src="https://www.defense-92.fr/wp-content/uploads/2020/12/colline-de-la-defense-dome-imax-.jpg">
                     <br>
                     <div class="cinema-name">
-                        <h3><a href="#">Cinéma Cité La Défense</a> </h3><br>
+                        <h3><a href="cinema.php?cine=1">Cinéma Cité La Défense</a> </h3><br>
                         <span>Centre Commercial Les Quatre Temps</span><br>
                         <span>92092 PARIS-LA-DEFENSE</span>
                     </div>
@@ -269,7 +269,7 @@
                 <img  src="https://www.boxofficepro.fr/wp-content/uploads/sites/2/2022/09/IMG_5451-1024x683.jpg">
                 <br>
                 <div class="cinema-name">
-                    <h3><a href="#">Cinéma Issy-Les-Moulineaux</a></h3><br>
+                    <h3><a href="cinema.php?cine=2">Cinéma Issy-Les-Moulineaux</a></h3><br>
                     <span>8 Promenade Cœur de Ville</span><br>
                     <span>92130 Issy-les-Moulineaux</span>
                 </div>
@@ -287,7 +287,7 @@
                 <img src="https://medias.businessimmo.com/default/0002/41/140497/ugc-rosny-2_admin.jpg">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Cité Rosny</a></h3><br>  
+                <h3><a href="cinema.php?cine=3">Cinéma Cité Rosny</a></h3><br>  
                 <span>Centre Commercial Rosny 2 - 16, rue Conrad Adenauer</span><br> 
                 <span>93110, ROSNY SOUS BOIS</span> 
                 </div> 
@@ -303,7 +303,7 @@
                 <img  src="http://idata.over-blog.com/2/65/16/29/2013NOVEMBRE/ugc-aulnay-parinor.jpg">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Cité O'Parinor</a></h3><br>
+                <h3><a href="cinema.php?cine=4">Cinéma Cité O'Parinor</a></h3><br>
                 <span>Centre Commercial O Parinor Le Haut de Galy</span><br>
                 <span>93600 AULNAY SOUS BOIS</span>
             </div>
@@ -320,7 +320,7 @@
                 <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/24/51/a3/ugc-cine-cite.jpg?w=1200&h=-1&s=1">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Cité Créteil</a></h3><br>
+                <h3><a href="cinema.php?cine=5">Cinéma Cité Créteil</a></h3><br>
                 <span>Centre Commercial Créteil Soleil</span><br>
                 <span>94000 CRETEIL</span> 
                 </div>
@@ -335,7 +335,7 @@
                 <div class="cinema-info">
                 <img  src="https://cst.fr/wp-content/uploads/2020/03/CINEMA_CGR_EXTE-1.jpg">
                 <br><div class="cinema-name">
-                <h3><a href="#">Cinéma Nanterre Coeur Université</a></h3><br>
+                <h3><a href="cinema.php?cine=6">Cinéma Nanterre Coeur Université</a></h3><br>
                 <span>200 allée de Corse</span><br>
                 <span>92000 Nanterre </span>
             </div>
@@ -352,7 +352,7 @@
                 <img src="https://cdn-s-www.leprogres.fr/images/BB0D792A-2730-416C-B266-0A0101100B27/NW_raw/des-son-ouverture-le-mega-cgr-a-tape-fort-avec-15-salles-et-autant-de-films-a-l-affiche-photo-damien-lepetitgaland-1454705637.jpg">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Brignais</a></h3><br>
+                <h3><a href="cinema.php?cine=7">Cinéma Brignais</a></h3><br>
                 <span>1 Rue de L'industrie / ZI Les Valliers</span><br>
                 <span>69530 Brignais</span> 
             </div>
@@ -371,7 +371,7 @@
                 <img src="https://fr.web.img1.acsta.net/pictures/214/584/21458465_214533059.jpg/r_1472_939">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Epinay-sur-Seine</a></h3><br>
+                <h3><a href="cinema.php?cine=8">Cinéma Epinay-sur-Seine</a></h3><br>
                 <span>5, avenue Joffre</span><br>
                 <span>93800 Épinay-sur-Seine</span> 
             </div>
@@ -388,7 +388,7 @@
                 <img src="https://fr.web.img1.acsta.net/img/26/b1/26b171c3c8b44c793c49f90ee1123893.jpg/r_1472_983">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Paris - Lilas</a></h3><br>
+                <h3><a href="cinema.php?cine=9">Cinéma Paris - Lilas</a></h3><br>
                 <span>Place du Maquis du Vercors</span><br>
                 <span>75020 Paris</span>
                 </div>
@@ -406,7 +406,7 @@
                 <img  src="https://www.boxofficepro.fr/wp-content/uploads/sites/2/2021/02/Photo-17-10-2017-17-10-05-scaled.jpg">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Sarcelles My Place</a></h3><br>
+                <h3><a href="cinema.php?cine=10">Cinéma Sarcelles My Place</a></h3><br>
                 <span>2, contre-allée Henri Dunant</span><br>
                 <span>95200, Sarcelles</span></div>
             </div>
@@ -422,7 +422,7 @@
                 <div class="cinema-info">
                 <img  src="https://img.annuaire-mairie.fr/img/logo/gaumont-saint-denis.jpg">
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Stade de France</a></h3><br>
+                <h3><a href="cinema.php?cine=11">Cinéma Stade de France</a></h3><br>
                 <span>8, rue du Mondial 98</span><br>
                 <span> 93210 Saint-Denis</span> </div>
                 </div>
@@ -438,7 +438,7 @@
                 <img src="https://3.bp.blogspot.com/-cEjCiic3L50/Wo2Hr806k2I/AAAAAAABRYw/aX_z4XGnrkwhNXtyBSX1oDwU5ZHm1aW5gCLcBGAs/s1600/Gaumont-Al%25C3%25A9sia.jpg">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Alésia</a></h3><br>
+                <h3><a href="cinema.php?cine=12">Cinéma Alésia</a></h3><br>
                 <span>73 avenue du Général Leclerc 75014</span><br>
                 <span>Paris 14e arrondissement</span></div></div>
             </div>
@@ -452,7 +452,7 @@
                 <img src="https://salles-cinema.com/wp-content/uploads/2009/08/gaumont-aquaboulevard.jpg">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Aqualouevard</a></h3><br>
+                <h3><a href="cinema.php?cine=13">Cinéma Aqualouevard</a></h3><br>
                 <span>8-16, rue du Colonel-Pierre-Avia </span><br> 
                 <span>75015 Paris 13e arrondissement</span></div>  </div>      
             </div>
@@ -468,7 +468,7 @@
                 <img src="https://salles-cinema.com/wp-content/uploads/2016/04/cinema-gaumont-convention_01.jpg">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Convention</a></h3><br>
+                <h3><a href="cinema.php?cine=14">Cinéma Convention</a></h3><br>
                 <span>27, rue Alain-Chartier</span><br>
                 <span>75015 Paris</span></div>   </div>
             </div>
@@ -483,7 +483,7 @@
                 <img src="https://www.ville-saran.fr/sites/default/files/documents/culture/cinema.jpg">
                 <br>
                 <div class="cinema-name">
-                <h3><a href="#">Cinéma Saron - IMAX</a></h3><br>
+                <h3><a href="cinema.php?cine=15">Cinéma Saron - IMAX</a></h3><br>
                 <span>Rond Point Tangentielle / RN 20 Nord</span><br> 
                 <span>SARAN 45770 Saran</span></div>  </div> 
             </div>

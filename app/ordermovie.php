@@ -1,8 +1,9 @@
 <?php
     session_start();
     include_once 'include/header.php';
+    $logedIn = true;
     if(!isset($_SESSION["IdClient"])){
-        echo '<script>alert("Veulliez vous connecter pour accéder à cette page (pour l\'instant);</script>';
+        $logedIn = false;
     }
 ?>
 

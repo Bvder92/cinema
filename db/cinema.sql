@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Apr 15, 2023 at 05:53 PM
+-- Generation Time: Apr 16, 2023 at 06:13 PM
 -- Server version: 8.0.32
 -- PHP Version: 8.1.17
 
@@ -30,29 +30,30 @@ SET time_zone = "+00:00";
 CREATE TABLE `Cinéma` (
   `IdCine` int NOT NULL,
   `NomCine` varchar(50) NOT NULL,
-  `Ville` varchar(50) NOT NULL
+  `Ville` varchar(50) NOT NULL,
+  `ImageCine` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `Cinéma`
 --
 
-INSERT INTO `Cinéma` (`IdCine`, `NomCine`, `Ville`) VALUES
-(1, 'Cinéma Cité La Défense', 'Nanterre'),
-(2, 'Cinéma Issy-Les-Moulineaux', 'Boulogne-Billancourt'),
-(3, 'Cinéma Ciné Cité Rosny', 'Rosny-sous-Bois'),
-(4, 'Cinéma Cité O Parinor', 'Aulnay-sous-Bois'),
-(5, 'Cinéma Cité Créteil', 'Creteil'),
-(6, 'Cinéma Nanterre Coeur Université', 'Nanterre'),
-(7, 'Cinéma Brignais', 'Lyon'),
-(8, 'Cinéma Epinay-sur-Seine ', 'Epinay-sur-Saine'),
-(9, 'Cinéma Paris-Lilas', 'Paris'),
-(10, 'Cinéma Sarcelles My Place', 'Sarcelles'),
-(11, 'Cinéma Stade de France', 'Saint-Denis'),
-(12, 'Cinéma Alésia', 'Paris'),
-(13, 'Cinéma Aqualouevard', 'Paris '),
-(14, 'Cinéma Convention', 'Paris'),
-(15, 'Cinéma Saron - IMAX', 'Saran');
+INSERT INTO `Cinéma` (`IdCine`, `NomCine`, `Ville`, `ImageCine`) VALUES
+(1, 'Cinéma Cité La Défense', 'Nanterre', 'images/cinéma/ladefense-dome.jpg'),
+(2, 'Cinéma Issy-Les-Moulineaux', 'Boulogne-Billancourt', 'images/cinéma/issy-les-moulineaux.jpg'),
+(3, 'Cinéma Ciné Cité Rosny', 'Rosny-sous-Bois', 'images/cinéma/cité-rosny.jpg'),
+(4, 'Cinéma Cité O Parinor', 'Aulnay-sous-Bois', 'images/cinéma/cité-o-parinor.jpg'),
+(5, 'Cinéma Cité Créteil', 'Creteil', 'images/cinéma/cité-créteil.jpg'),
+(6, 'Cinéma Nanterre Coeur Université', 'Nanterre', 'images/cinéma/nanterre-coeur.webp'),
+(7, 'Cinéma Brignais', 'Lyon', 'images/cinéma/brignais.jpg'),
+(8, 'Cinéma Epinay-sur-Seine ', 'Epinay-sur-Saine', 'images/cinéma/epinay.jpg'),
+(9, 'Cinéma Paris-Lilas', 'Paris', 'images/cinéma/paris-lilas.jpg'),
+(10, 'Cinéma Sarcelles My Place', 'Sarcelles', 'images/cinéma/sarcelles-myplace.jpg'),
+(11, 'Cinéma Stade de France', 'Saint-Denis', 'images/cinéma/stade-de-france.jpg'),
+(12, 'Cinéma Alésia', 'Paris', 'images/cinéma/alésia.jpg'),
+(13, 'Cinéma Aqualouevard', 'Paris ', 'images/aquaboulevard.jpg'),
+(14, 'Cinéma Convention', 'Paris', 'images/cinéma/aquaboulevard.jpg'),
+(15, 'Cinéma Saron - IMAX', 'Saran', 'images/cinéma/saron-imax.jpg');
 
 -- --------------------------------------------------------
 
