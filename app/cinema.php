@@ -86,13 +86,12 @@ if (!isset($_SESSION["IdClient"])) {
         $RefFilm = $array[$i][2];
         $RefCine = $array[$i][3];
 
-        echo "<li>" . getNomFilm($conn, $RefFilm) . ", " . $DateSéance;
+        echo '<li><a href="ordermovie.php?movie=' . $RefFilm . '">' . getNomFilm($conn, $RefFilm) . "</a>, " . $DateSéance;
         showButton($conn, $_SESSION["IdClient"], $IdSéance, $i); //affiche le bouton "réserver" si les conditions sont bonnes
         
         //si le bouton "Réserver a été pressé, on réserve la séance
         if(isset($_POST["reserver" . $i])){
             reserverSeance($conn, $_SESSION["IdClient"], $IdSéance);
-            echo '<script>alert("Vous avez réservé la séance' . $IdSéance . ' , ' . $DateSéance . ' ");</script>';
         }
     }
     echo "</ul>";

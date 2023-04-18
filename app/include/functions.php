@@ -179,27 +179,33 @@ function reserverSeance($conn, $idClient, $idSéance){
     mysqli_stmt_execute($statement);
 
     mysqli_stmt_close($statement);
+
+    echo '<script>alert("Séance réservée avec succès!");</script>';
 }
 
 //vérifie que l'utilisateur soit connecté, et la séance pas déjà réservée
-function showButton($conn, $idClient, $idSéance, $i){
+function showButton($conn, $logedIn, $idSéance, $i){
 
-    $sql = "SELECT * FROM Réservation WHERE RefClient = ? AND RefSéance = ?;";
-    $statement = mysqli_stmt_init($conn);
+    //si le client est connecté, on vérifie qu'il n'ait pas déjà réservé la séance
+    if($logedIn == true){
 
-    if (!mysqli_stmt_prepare($statement, $sql)) {
-        header("location: ../index.html");
-        exit();
+        $sql = "SELECT * FROM Réservation WHERE RefClient = ? AND RefSéance = ?;";
+        $statement = mysqli_stmt_init($conn);
+
+        if (!mysqli_stmt_prepare($statement, $sql)) {
+            header("location: ../index.html");
+            exit();
+        }
+        mysqli_stmt_bind_param($statement, "ii", $_SESSION["IdClient"], $idSéance);
+        mysqli_stmt_execute($statement);
+
+        $result = mysqli_stmt_get_result($statement);
+
+        if ($row = mysqli_fetch_assoc($result)) { //la séance est déjà réservée
+            echo '<br><button style="opacity: 0.6; cursor: not-allowed">Réservée</button>';
+            return;
+        }
     }
-    mysqli_stmt_bind_param($statement, "ii", $idClient, $idSéance);
-    mysqli_stmt_execute($statement);
 
-    $result = mysqli_stmt_get_result($statement);
-
-    if( $row = mysqli_fetch_assoc($result)){ //la séance est déjà réservée
-        echo '<br><button style="opacity: 0.6; cursor: not-allowed">Réservée</button>';
-    }
-    else{
-        echo ' <form method="post"><input type="submit" name="reserver' . $i .'" value="Réserver"></form></li>';
-    }
+    echo ' <form method="post"><input type="submit" name="reserver' . $i . '" value="Réserver"></form></li>';
 }

@@ -87,6 +87,7 @@
                 <div class="tags"> 
                     <span><?php echo $film->getGenre(); ?></span> 
                     <span><?php echo $film->getDuree(); ?></span>
+                    <span><?php if($logedIn == true){echo "Loged in";} else{echo "Loged out";} ?></span>
                 </div>
             </div>
             <div class="play-icon">
@@ -132,13 +133,23 @@
         $RefFilm = $array[$i][2];
         $RefCine = $array[$i][3];
 
-        echo "<li>" . getNomCine($conn, $RefCine) . ", " . $DateSéance;
-        showButton($conn, $_SESSION["IdClient"], $IdSéance, $i); //affiche le bouton "réserver" si les conditions sont bonnes
+        echo '<li><a href="cinema.php?cine=' . $RefCine . '">' . getNomCine($conn, $RefCine) . '</a>, ' . $DateSéance;
+        showButton($conn, $logedIn, $IdSéance, $i); //affiche le bouton "réserver" si les conditions sont bonnes
         
         //si le bouton "Réserver a été pressé, on réserve la séance
         if(isset($_POST["reserver" . $i])){
-            reserverSeance($conn, $_SESSION["IdClient"], $IdSéance);
-            echo '<script>alert("Vous avez réservé la séance' . $IdSéance . ' , ' . $DateSéance . ' ");</script>';
+            if($logedIn == true){
+                reserverSeance($conn, $_SESSION["IdClient"], $IdSéance);
+                for ($j = 0; $i<count($_POST); $j++)
+                {
+                    unset($_POST["reserver" . $j]);
+                }
+                echo '<script>window.location.assign(ordermovie.php?movie=' . $film->getNom() . ');</script>';
+            }
+            else
+            {
+                header("location: login.php");
+            }
         }
     }
     echo "</ul>";
