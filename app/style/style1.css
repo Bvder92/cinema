@@ -51,7 +51,9 @@ header{
 }
 
 header.shadow{
-    background: #e80051;
+    /*background: #e80051; ancienne couleur*/
+    background: rgb(6,9,11);
+    background: linear-gradient(180deg, rgba(6,9,11,1) 0%, rgba(6,9,11,0.8869748583026961) 57%, rgba(35,30,36,0.35476197314863445) 100%); 
 }
 
 header.shadow a{

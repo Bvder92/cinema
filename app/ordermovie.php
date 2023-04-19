@@ -1,10 +1,29 @@
 <?php
+
+    //si on arrive sur cette sans avoir cliqué sur un film, on renvoie à la liste des films.
+    if (!isset($_GET["movie"])){
+        header("location: include/redirect.php?dest=index.php");
+        exit();
+    }
+
+    if (isset($_GET["error"])){
+        if ($_GET["errror"] == 1) {
+            echo "<script>alert('Une erreur est survenue')</script>";
+            header("location: index.html#films");
+            exit();
+        }
+        if ($_GET["errror"] == 0) {
+            echo "<script>alert('Séance réservée avec succès')</script>";
+        }
+    }
+
     session_start();
     include_once 'include/header.php';
     $logedIn = true;
     if(!isset($_SESSION["IdClient"])){
         $logedIn = false;
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -32,22 +51,6 @@
     //on arrive sur cette page en cliquant sur le bouton 'réserver' d'un film.
     //on va donc faire choisir à l'utilisateur un cinéma qui propose le film.
 
-    //si on arrive sur cette sans avoir cliqué sur un film, on renvoie à la liste des films.
-    if (!isset($_GET["movie"])){
-        header("location: index.html#cinema");
-        exit();
-    }
-
-    if (isset($_GET["error"])){
-        if ($_GET["errror"] == 1) {
-            echo "<script>alert('Une erreur est survenue')</script>";
-            header("location: index.html#films");
-            exit();
-        }
-        if ($_GET["errror"] == 0) {
-            echo "<script>alert('Séance réservée avec succès')</script>";
-        }
-    }
 
     include_once 'include/header.php';  //inclure le header 
     require_once 'include/bdd_script.php'; //pour la variable $conn
@@ -148,7 +151,7 @@
             }
             else
             {
-                header("location: login.php");
+                echo '<script>alert("impossible, veuillez vous connecter");</script>';
             }
         }
     }
