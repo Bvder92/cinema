@@ -17,9 +17,8 @@
 </head>
 <body>
 <script src="/include/main.js"></script>
-    
+     
     <?php include_once 'include/header.php'; ?>
-    
     
     <script> //script pour la navbar qui devient opaque 
         let header = document.querySelector('header');
@@ -27,7 +26,8 @@
         window.addEventListener('scroll', () => {
         header.classList.toggle('shadow', window.scrollY > 0);
         }); 
-    </script>
+    </script>   
+
 
 
     <section class="menu swiper" id="menu">

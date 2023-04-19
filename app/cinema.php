@@ -41,7 +41,7 @@ if (!isset($_SESSION["IdClient"])) {
         exit();
     }
 
-    include_once 'include/header2.php';  //inclure le header 
+    include_once 'include/header.php';  //inclure le header 
     require_once 'include/bdd_script.php'; //pour la variable $conn
     require_once 'include/functions.php';  //fonctions générales
     require_once 'include/Cinéma.php';       //pour la classe Cinéma

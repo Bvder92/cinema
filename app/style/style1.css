@@ -51,7 +51,7 @@ header{
 }
 
 header.shadow{
-    background: #ffffff;
+    background: #e80051;
 }
 
 header.shadow a{
@@ -515,6 +515,7 @@ p{
     margin: 0;
 }*/
 
+
 .movie-order{
     position: relative;
     min-height: 540px;
@@ -544,6 +545,11 @@ p{
     justify-content: flex-end;
     background-size: cover;
     background-position: center;
+}
+
+.play-icon{
+    font-size: 1em;
+    
 }
 
 .film-title{

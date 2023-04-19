@@ -49,7 +49,7 @@
         }
     }
 
-    include_once 'include/header2.php';  //inclure le header 
+    include_once 'include/header.php';  //inclure le header 
     require_once 'include/bdd_script.php'; //pour la variable $conn
     require_once 'include/functions.php';  //au cas ou
     require_once 'include/Film.php';       //pour la classe Film
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div class="play-icon">
-                <i class="fa-light fa-circle-play"></i>
+                <i class="fa-regular fa-play"></i>
             </div>
         </div>
     </div>
