@@ -180,7 +180,6 @@ function reserverSeance($conn, $idClient, $idSéance){
 
     mysqli_stmt_close($statement);
 
-    echo '<script>alert("Séance réservée avec succès!");</script>';
 }
 
 //vérifie que l'utilisateur soit connecté, et la séance pas déjà réservée
