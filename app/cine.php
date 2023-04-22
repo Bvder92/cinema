@@ -1,20 +1,9 @@
 <?php
 
-//si on arrive sur cette sans avoir cliqué sur un film, on renvoie à la liste des films.
-if (!isset($_GET["movie"])) {
-    header("location: include/redirect.php?dest=index.php");
+//si on arrive sur cette sans avoir cliqué sur un ciné, on renvoie à la liste des ciné.
+if (!isset($_GET["cine"])) {
+    header("location: include/redirect.php?dest=index.php#cinema");
     exit();
-}
-
-if (isset($_GET["error"])) {
-    if ($_GET["errror"] == 1) {
-        echo "<script>alert('Une erreur est survenue')</script>";
-        header("location: index.html#films");
-        exit();
-    }
-    if ($_GET["errror"] == 0) {
-        echo "<script>alert('Séance réservée avec succès')</script>";
-    }
 }
 
 session_start();
@@ -35,10 +24,10 @@ if (!isset($_SESSION["IdClient"])) {
     <link rel="stylesheet" href="/style/style1.css">
     <script src="https://kit.fontawesome.com/927b94a7cf.js" crossorigin="anonymous"></script>
     <script src="https://code.jQuery.com/jquery-3.6.0.min.js"></script>
-    <title>Réserver un film</title>
+    <title>Cinéma</title>
 </head>
     
-<script defer src = "include/ordermovie.js" >
+<script defer src = "include/ordercine.js" >
 </script>
 
 <body>
@@ -53,35 +42,33 @@ if (!isset($_SESSION["IdClient"])) {
     </script>
     <?php
 
-    //on arrive sur cette page en cliquant sur le bouton 'réserver' d'un film.
-    //on va donc faire choisir à l'utilisateur un cinéma qui propose le film.
+    //on arrive sur cette page en cliquant sur un cinéma.
+    //on va donc faire choisir à l'utilisateur une séance proposée par ce cinéma.
 
 
     include_once 'include/header.php';  //inclure le header 
     require_once 'include/bdd_script.php'; //pour la variable $conn
     require_once 'include/functions.php';  //au cas ou
-    require_once 'include/Film.php';       //pour la classe Film
+    require_once 'include/Cinéma.php';       //pour la classe Cinéma 
 
 
 
-    $film = new Film($_GET["movie"], $conn);
+    $ciné = new Cinéma($_GET["cine"], $conn); //instance de la classe Cinéma
     $array = array(); //tableau qui va contenir toutes les lignes de la table Séance
-    $array = $film->getSeances(); //tableau de tableaux, chaque entrée est un tableau
-    echo '<span id="' . $film->getId() . '"></span>'; //on crée ce span vide pour récupérer l'id du film dans JS
+    $array = $ciné->getSeances(); //tableau de tableaux, chaque entrée est un tableau
+    echo '<span id="' . $ciné->getId() . '"></span>'; //on crée ce span vide pour récupérer l'id du cinéma dans JS
     echo "<br><br><br><br><br><br><br>";
     ?>
 
-    <!-- AFFICHAGE DES INFOS DU FILM (NOM, IMAGE, ETC) -->
+    <!-- AFFICHAGE DES INFOS DU CINÉMA (NOM, IMAGE, ETC) -->
     <div class="movie-order">
         <div class="film-details">
-            <img class="film-image" src="<?php echo $film->getImage(); ?>" alt="<?php echo $film->getNom(); ?>" width="200" height="275">
+            <img class="film-image" src="<?php echo $ciné->getImage(); ?>" alt="<?php echo $ciné->getNom(); ?>" width="200" height="275">
 
-            <h1 class="film-title"><?php echo $film->getNom(); ?></h1>
+            <h1 class="film-title"><?php echo $ciné->getNom(); ?></h1>
             <div class="film-info">
-                <span> <?php echo $film->getProducteur(); ?> </span>
                 <div class="tags">
-                    <span><?php echo $film->getGenre(); ?></span>
-                    <span><?php echo $film->getDuree(); ?></span>
+                    <span><?php echo $ciné->getVille(); ?></span>
                     <span><?php if ($logedIn == true) {
                                 echo "Loged in";
                             } else {
@@ -110,7 +97,7 @@ if (!isset($_SESSION["IdClient"])) {
         $RefFilm = $array[$i][2];
         $RefCine = $array[$i][3];
 
-        echo '<div id="div' . $i . '" style="background-color: red;"><h4>' . getNomCine($conn, $RefCine) . '</h4><p>' . $DateSéance . '</p></div><br>';
+        echo '<div id="div' . $i . '" style="background-color: red;"><h4>' . getNomFilm($conn, $RefFilm) . "</h4><p>" . $DateSéance . "</p></div><br>";
     }
 
     ?>

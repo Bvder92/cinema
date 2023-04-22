@@ -1,5 +1,6 @@
 function showButton(a){
     console.log(a);
+    //return "<button '>Réserver Séance " + a + "</button>";
     return "<button onclick='callPHP(" + a + ")'>Réserver</button>";
 }
 
@@ -7,7 +8,7 @@ function callPHP(div){
     $.ajax({
         url: 'include/reserver_seance.php',
         type: 'POST',
-        data: {movie: idFilm, index: div, mode: "film"},
+        data: {movie: idCine, index: div, mode: "cine"},
         success: function(data){
             console.log('Réponse serveur: ' + data);
             if (data == "sucess") {
@@ -24,8 +25,9 @@ function callPHP(div){
 }
 
 const nbSéances = Number(document.getElementById("nbSeances").innerHTML.slice(21, 23)); //nombre de séances disponibles
-const idFilm = document.getElementsByTagName("span")[0].id; //idFilm
-console.log("idFilm: " + idFilm + ", nbSeances: " + nbSéances);
+const idCine = document.getElementsByTagName("span")[0].id; //idCine
+console.log("idCine: " + idCine + ", nbSeances: " + nbSéances);
+
 const result = document.querySelector("#result"); //div en bas de page qui contient le bouton "réserver"
 const id1 = document.querySelector("#div0");
 const id2 = document.querySelector("#div1");
@@ -42,9 +44,6 @@ const id12 = document.querySelector("#div11");
 const id13 = document.querySelector("#div12");
 const id14 = document.querySelector("#div13");
 const id15 = document.querySelector("#div14");
-//const id16 = document.querySelector('#div16');
-//const id17 = document.querySelector('#div17');
-
 
 id1.addEventListener('click', e => {result.innerHTML = showButton(0);});
 id2.addEventListener('click', e => {result.innerHTML = showButton(1);});
