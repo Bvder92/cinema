@@ -1,7 +1,7 @@
 function showButton(a){
     console.log(a);
     //return "<button '>Réserver Séance " + a + "</button>";
-    return "<button onclick='callPHP(" + a + ")'>Réserver</button>";
+    return "<button class='btn' onclick='callPHP(" + a + ")'>Réserver</button>";
 }
 
 function callPHP(div){

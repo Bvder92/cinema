@@ -76,65 +76,68 @@ if (!isset($_SESSION["IdClient"])) {
     <div class="movie-order">
         <div class="film-details">
             <img class="film-image" src="<?php echo $film->getImage(); ?>" alt="<?php echo $film->getNom(); ?>" width="200" height="275">
-            <div class="play-icon">
-                <i class="fa-regular fa-play play-movie user"></i>
-            </div>
-
+            
+            
+            
             <div class="film-info">
                 <h2> <?php echo $film->getNom(); ?></h2>
                 <span> <?php echo $film->getProducteur(); ?> </span>
-                
 
+                <button onclick="play();" class="btn-play"><i class="fa-regular fa-play play-movie"></i></button>
                 <div class="tags">
                     <span><?php echo $film->getGenre(); ?></span>
                     <span><?php echo $film->getDuree(); ?></span>
-                    <span>4K</span>
+                    <span><b>4K</b></span>
                 </div>
             </div>
 
             
-            <div class="video-container">
+            <!--<div class="video-container">
                 <div class="video-box">
-                    <video src="<?php echo $film->getBandeAnnonce(); ?>" controls></video>
-                    <i class="fa-regular fa-xmark close-video"></i>
-            </div> 
+                    <video id="video" src="<?php echo $film->getBandeAnnonce(); ?>" controls></video>
+                    <i onclick="pause();"class="fa-regular fa-xmark close-video"></i>
+            </div>-->
         </div> 
         
-       <!-- <span><?php if ($logedIn == true) {
+
+    </div>
+    
+       <span><?php if ($logedIn == true) {
                                 echo "Loged in";
                             } else {
                                 echo "Loged out";
                             } ?></span>
-                    <span id="nbSeances"><?php echo "Séances Disponibles: " . count($array); ?></span> -->
 
-
-
-    </div>
+    <!--<span id="nbSeances"><?php echo "Séances Disponibles: " . count($array); ?></span>--> 
 
     <!--  AFFICHAGE DES SÉANCES -->
-    <!--
-    <div class="titre">
-        <h2>Séances Disponibles</h2>
+   
+    <div class="liste-seances">
+        <div class="titre">
+            <h2>Séances Disponibles</h2>
+        </div>
+
+        <?php
+        for ($i = 0; $i < count($array); $i++) {
+            $IdSéance = $array[$i][0];
+            $DateSéance = $array[$i][1];
+            $RefFilm = $array[$i][2];
+            $RefCine = $array[$i][3];
+
+            echo '
+                <div id=div' . $i . ' class="tags" >
+                    <span>' . getNomCine($conn, $RefCine) .'  '. $DateSéance . '</span>
+                </div>
+                ';
+        }
+        
+        ?>
+
+        <div id="result">
+            <button disabled class="btn-disabled">Réserver</button>
+        </div>
+
     </div>
-
-    <?php
-    /*
-    for ($i = 0; $i < count($array); $i++) {
-        $IdSéance = $array[$i][0];
-        $DateSéance = $array[$i][1];
-        $RefFilm = $array[$i][2];
-        $RefCine = $array[$i][3];
-
-        echo '<br><div id="liste-seances' . $i . '" style="background-color: red;"><h4>' . getNomCine($conn, $RefCine) . '</h4><p>' . $DateSéance . '</p></div><br>';
-    }
-    */
-    ?>
-    
-
-    <div id="result">
-        <button disabled class="btn-disabled">Réserver</button>
-    </div>
-    -->
 
 </body>
 

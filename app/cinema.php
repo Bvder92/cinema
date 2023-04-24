@@ -77,9 +77,7 @@ if (!isset($_SESSION["IdClient"])) {
                     <span id="nbSeances"><?php echo "Séances Disponibles: " . count($array); ?></span>
                 </div>
             </div>
-            <div class="play-icon">
-                <i class="fa-regular fa-play"></i>
-            </div>
+            
         </div>
     </div>
 
@@ -103,7 +101,7 @@ if (!isset($_SESSION["IdClient"])) {
     ?>
 
     <div id="result">
-        <button disabled>Réserver</button>
+        <button disabled class="btn-disabled">Réserver</button>
     </div>
 </body>
 

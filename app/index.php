@@ -37,7 +37,7 @@
                 <div class="menu-text">
                     <span>Marvel Cinematic Universe</span>
                     <h1>Spiderman</h1>
-                    <a href="#"><button class="btn">Séances</button></a>
+                    <a href="ordermovie.php?movie=19"><button class="btn">Séances</button></a>
                 </div>
             </div>
 
@@ -46,7 +46,7 @@
                 <div class="menu-text">
                     <span>Le Seigneur des Anneaux</span>
                     <h1>Le Seigneur des anneaux <br> le marathon évènement</h1>
-                    <a href="#"> <button class="btn">Séances</button></a>
+                    <a href="ordermovie.php?movie=3"> <button class="btn">Séances</button></a>
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
                 <div class="menu-text">
                     <span>Studio Ghibli</span>
                     <h1>Revivez les films de Miyazaki</h1>
-                    <a href="#"><button class="btn">Séances</button></a>
+                    <a href="ordermovie.php?movie=10"><button class="btn">Séances</button></a>
                 </div>
             </div>
             

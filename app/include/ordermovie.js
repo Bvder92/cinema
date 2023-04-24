@@ -24,18 +24,13 @@ function callPHP(div){
 }
 
 
+function play(){
+    document.getElementById("video").play();
+}
 
-let playbtn = document.querySelector(".play-movie");
-let myvideo = document.querySelector(".b-a");
-let closebtn = document.querySelector(".close-movie");
-
-playbtn.onclick = () => {
-    myvideo.play();
-};
-
-closebtn.onclick = () => {
-    myvideo.pause();
-};
+function stop(){
+    document.getElementById("video").pause();
+}
 
 
 const nbSéances = Number(document.getElementById("nbSeances").innerHTML.slice(21, 23)); //nombre de séances disponibles
