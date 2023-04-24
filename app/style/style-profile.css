@@ -53,7 +53,7 @@
 
 
 /********************************************** PROFIL **********************************************/
-.containerProfil {
+		.containerProfil {
 			max-width: 800px;
 			margin: 0 auto;
 			padding: 20px;
@@ -115,7 +115,10 @@
 			
 		}
 		
+		
 		 .content-boxProfil {
+			height: 450px; 
+			overflow: auto; 
 			background-color: black;
 			color: white;
 			padding: 30px;
@@ -178,4 +181,3 @@
 	color:white;
 	margin-bottom: -2px;
 }
-

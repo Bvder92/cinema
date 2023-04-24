@@ -236,7 +236,7 @@ function printReservations($array, $conn){
         $séance = new Séance($array[$i][3], $conn);
         echo "<div style='background-color: #92222b; border-radius: 6px;'>";
 
-        echo '<p><a href="ordermovie.php?movie=' . $séance->getRefFilm() . '"><h4>' . $séance->getNomFilm() . '</h4></a></p>';
+        echo '<p><a href="ordermovie.php?movie=' . $séance->getRefFilm() . '"><h3>' . $séance->getNomFilm() . '</h3></a></p>';
         echo '<p><a href="cinema.php?cine=' . $séance->getRefCine() . '">' . $séance->getNomCine() . '</a></p>';
         echo "<p>Date Séance: " . $séance->getDate() . "</p>";
         echo "<p>Date Réservation: " . $array[$i][1] . "</p>";
