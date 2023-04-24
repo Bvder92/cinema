@@ -57,7 +57,7 @@ header.shadow{
 }
 
 header.shadow a{
-    color:black; 
+    color:rgb(255, 255, 255); 
 }
 
 
@@ -487,35 +487,6 @@ p{
 
 /********************************************** ORDER MOVIE **********************************************/
 
-/*.movie-order {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.film-details {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.film-image {
-    max-width: 100%;
-    height: auto;
-}
-
-
-.film-title {
-    font-size: 24px;
-    margin: 0;
-    margin-bottom: 10px;
-}
-
-.film-meta {
-    font-size: 16px;
-    margin: 0;
-}*/
 
 
 .movie-order{
@@ -535,7 +506,6 @@ p{
     
 }
 
-
 .film-info{
     position: absolute;
     bottom: 0;
@@ -547,12 +517,24 @@ p{
     justify-content: flex-end;
     background-size: cover;
     background-position: center;
+    padding: 40px;
 }
 
-.play-icon{
-    font-size: 1em;
-    
+.film-info h2{
+    font-size: 1.5rem;
+    font-weight: 600;
 }
+
+/*.play-icon{
+    padding: 10px 20px;
+    background: #ED2939;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    border-radius: 10px;
+    cursor: pointer;
+}*
 
 .film-title{
     font-size: 1.5rem;
@@ -573,4 +555,55 @@ p{
     background-color: #969892;
     border-radius: 4px;
 }
+
+.btn-disabled{
+    width: 150px;
+    height: 45px;
+    background: #d0babb;
+    color: #000000;
+    border: none; 
+    outline: none;
+    font-weight: 400;
+    font-size: 1em;
+    border-radius: 10px;
+}
+
+.video-container{
+    position: fixed;
+    top:0;
+    left:0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: hsl(234 10% 20% / 60%);
+    z-index: 400;
+}
+
+.video-container.show-video{
+    display: flex;
+}
+
+.video-box{
+    position: relative;
+    width: 82%;
+}
+
+.video-box #b-a{
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.close-video{
+    position : absolute; 
+    top: -3rem;
+    right: 0; 
+    font-size: 40px;
+    color: #ED2939;
+
+}
+
+
+
 

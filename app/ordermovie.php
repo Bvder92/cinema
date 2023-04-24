@@ -36,6 +36,7 @@ if (!isset($_SESSION["IdClient"])) {
     <script src="https://kit.fontawesome.com/927b94a7cf.js" crossorigin="anonymous"></script>
     <script src="https://code.jQuery.com/jquery-3.6.0.min.js"></script>
     <title>Réserver un film</title>
+    <script></script>
 </head>
     
 <script defer src = "include/ordermovie.js" >
@@ -75,49 +76,66 @@ if (!isset($_SESSION["IdClient"])) {
     <div class="movie-order">
         <div class="film-details">
             <img class="film-image" src="<?php echo $film->getImage(); ?>" alt="<?php echo $film->getNom(); ?>" width="200" height="275">
+            <div class="play-icon">
+                <i class="fa-regular fa-play play-movie user"></i>
+            </div>
 
-            <h1 class="film-title"><?php echo $film->getNom(); ?></h1>
             <div class="film-info">
+                <h2> <?php echo $film->getNom(); ?></h2>
                 <span> <?php echo $film->getProducteur(); ?> </span>
+                
+
                 <div class="tags">
                     <span><?php echo $film->getGenre(); ?></span>
                     <span><?php echo $film->getDuree(); ?></span>
-                    <span><?php if ($logedIn == true) {
+                    <span>4K</span>
+                </div>
+            </div>
+
+            
+            <div class="video-container">
+                <div class="video-box">
+                    <video src="<?php echo $film->getBandeAnnonce(); ?>" controls></video>
+                    <i class="fa-regular fa-xmark close-video"></i>
+            </div> 
+        </div> 
+        
+       <!-- <span><?php if ($logedIn == true) {
                                 echo "Loged in";
                             } else {
                                 echo "Loged out";
                             } ?></span>
-                    <span id="nbSeances"><?php echo "Séances Disponibles: " . count($array); ?></span>
-                </div>
-            </div>
-            <div class="play-icon">
-                <i class="fa-regular fa-play"></i>
-            </div>
-        </div>
+                    <span id="nbSeances"><?php echo "Séances Disponibles: " . count($array); ?></span> -->
+
+
+
     </div>
 
     <!--  AFFICHAGE DES SÉANCES -->
-
+    <!--
     <div class="titre">
         <h2>Séances Disponibles</h2>
     </div>
 
     <?php
-
+    /*
     for ($i = 0; $i < count($array); $i++) {
         $IdSéance = $array[$i][0];
         $DateSéance = $array[$i][1];
         $RefFilm = $array[$i][2];
         $RefCine = $array[$i][3];
 
-        echo '<div id="div' . $i . '" style="background-color: red;"><h4>' . getNomCine($conn, $RefCine) . '</h4><p>' . $DateSéance . '</p></div><br>';
+        echo '<br><div id="liste-seances' . $i . '" style="background-color: red;"><h4>' . getNomCine($conn, $RefCine) . '</h4><p>' . $DateSéance . '</p></div><br>';
     }
-
+    */
     ?>
+    
 
     <div id="result">
-        <button disabled>Réserver</button>
+        <button disabled class="btn-disabled">Réserver</button>
     </div>
+    -->
+
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 function showButton(a){
     console.log(a);
-    return "<button onclick='callPHP(" + a + ")'>Réserver</button>";
+    return "<button class='btn' onclick='callPHP(" + a + ")'>Réserver</button>";
 }
 
 function callPHP(div){
@@ -22,6 +22,21 @@ function callPHP(div){
         }
     });
 }
+
+
+
+let playbtn = document.querySelector(".play-movie");
+let myvideo = document.querySelector(".b-a");
+let closebtn = document.querySelector(".close-movie");
+
+playbtn.onclick = () => {
+    myvideo.play();
+};
+
+closebtn.onclick = () => {
+    myvideo.pause();
+};
+
 
 const nbSéances = Number(document.getElementById("nbSeances").innerHTML.slice(21, 23)); //nombre de séances disponibles
 const idFilm = document.getElementsByTagName("span")[0].id; //idFilm
@@ -61,3 +76,4 @@ id12.addEventListener('click', e => {result.innerHTML = showButton(11);});
 id13.addEventListener('click', e => {result.innerHTML = showButton(12);});
 id14.addEventListener('click', e => {result.innerHTML = showButton(13);});
 id15.addEventListener('click', e => {result.innerHTML = showButton(14);});
+
