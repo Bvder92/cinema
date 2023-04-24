@@ -1,12 +1,19 @@
 <?php
+
+//si on arrive sur cette sans avoir cliqué sur un ciné, on renvoie à la liste des ciné.
+if (!isset($_GET["cine"])) {
+    header("location: include/redirect.php?dest=index.php#cinema");
+    exit();
+}
+
 session_start();
-//include_once 'include/header.php';
+include_once 'include/header.php';
 $logedIn = true;
 if (!isset($_SESSION["IdClient"])) {
     $logedIn = false;
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,8 +23,12 @@ if (!isset($_SESSION["IdClient"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/style1.css">
     <script src="https://kit.fontawesome.com/927b94a7cf.js" crossorigin="anonymous"></script>
+    <script src="https://code.jQuery.com/jquery-3.6.0.min.js"></script>
     <title>Cinéma</title>
 </head>
+    
+<script defer src = "include/ordercine.js" >
+</script>
 
 <body>
 
@@ -29,73 +40,71 @@ if (!isset($_SESSION["IdClient"])) {
             header.classList.toggle('shadow', window.scrollY > 0);
         });
     </script>
-
     <?php
 
     //on arrive sur cette page en cliquant sur un cinéma.
-    //on va donc faire choisir à l'utilisateur un film parmi tous ceux proposés par ce cinéma 
+    //on va donc faire choisir à l'utilisateur une séance proposée par ce cinéma.
 
-    //si on arrive sur cette page sans avoir cliqué sur un cinéma, on renvoie à la liste des cinémas.
-    if (!isset($_GET["cine"])) {
-        header("location: index.html#cinema");
-        exit();
-    }
 
     include_once 'include/header.php';  //inclure le header 
     require_once 'include/bdd_script.php'; //pour la variable $conn
-    require_once 'include/functions.php';  //fonctions générales
-    require_once 'include/Cinéma.php';       //pour la classe Cinéma
-    
-    $ciné = new Cinéma($_GET["cine"], $conn); //instance de la classe Cinéma
-    echo "<h1>" . $ciné->getNom() . "<br><br><br><br></h1>";
+    require_once 'include/functions.php';  //au cas ou
+    require_once 'include/Cinéma.php';       //pour la classe Cinéma 
 
-    echo '<img src="' . $ciné->getImage() . '">';
+
+
+    $ciné = new Cinéma($_GET["cine"], $conn); //instance de la classe Cinéma
+    $array = array(); //tableau qui va contenir toutes les lignes de la table Séance
+    $array = $ciné->getSeances(); //tableau de tableaux, chaque entrée est un tableau
+    echo '<span id="' . $ciné->getId() . '"></span>'; //on crée ce span vide pour récupérer l'id du cinéma dans JS
+    echo "<br><br><br><br><br><br><br>";
     ?>
-    
+
+    <!-- AFFICHAGE DES INFOS DU CINÉMA (NOM, IMAGE, ETC) -->
+    <div class="movie-order">
+        <div class="film-details">
+            <img class="film-image" src="<?php echo $ciné->getImage(); ?>" alt="<?php echo $ciné->getNom(); ?>" width="200" height="275">
+
+            <h1 class="film-title"><?php echo $ciné->getNom(); ?></h1>
+            <div class="film-info">
+                <div class="tags">
+                    <span><?php echo $ciné->getVille(); ?></span>
+                    <span><?php if ($logedIn == true) {
+                                echo "Loged in";
+                            } else {
+                                echo "Loged out";
+                            } ?></span>
+                    <span id="nbSeances"><?php echo "Séances Disponibles: " . count($array); ?></span>
+                </div>
+            </div>
+            <div class="play-icon">
+                <i class="fa-regular fa-play"></i>
+            </div>
+        </div>
+    </div>
+
+    <!--  AFFICHAGE DES SÉANCES -->
+
     <div class="titre">
         <h2>Séances Disponibles</h2>
     </div>
 
-    <form action="" method ="post">
-
-        <label for="sort">Tri par date </label>
-        <select name="sort" id="sort">
-            <option value="Défaut">Défaut</option>
-            <option value="Croissant">Récent -> Ancien</option>
-            <option value="Décroissant">Ancien -> Récent</option>
-        </select>
-        <input type="submit" name="submit" value="trier">
-    </form>
-        
     <?php
 
-    $sort = "Défaut";
-    if(isset($_POST["submit"])){
-        $sort = $_POST["sort"];
-    }
-    echo "Vous avez choisi " . $sort . "<br><br>";
-
-    $array = array();
-    $array = $ciné->getSeances(); //tableau de tableaux, chaque entrée représente une ligne de la table Séances
-    
-    echo '<ul>';
-
-    for ($i = 0; $i<count($array); $i++){
+    for ($i = 0; $i < count($array); $i++) {
         $IdSéance = $array[$i][0];
         $DateSéance = $array[$i][1];
         $RefFilm = $array[$i][2];
         $RefCine = $array[$i][3];
 
-        echo '<li><a href="ordermovie.php?movie=' . $RefFilm . '">' . getNomFilm($conn, $RefFilm) . "</a>, " . $DateSéance;
-        showButton($conn, $_SESSION["IdClient"], $IdSéance, $i); //affiche le bouton "réserver" si les conditions sont bonnes
-        
-        //si le bouton "Réserver a été pressé, on réserve la séance
-        if(isset($_POST["reserver" . $i])){
-            reserverSeance($conn, $_SESSION["IdClient"], $IdSéance);
-        }
+        echo '<div id="div' . $i . '" style="background-color: red;"><h4>' . getNomFilm($conn, $RefFilm) . "</h4><p>" . $DateSéance . "</p></div><br>";
     }
-    echo "</ul>";
+
     ?>
 
+    <div id="result">
+        <button disabled>Réserver</button>
+    </div>
 </body>
 
+</html>

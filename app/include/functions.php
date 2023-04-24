@@ -1,5 +1,6 @@
 <?php
 
+
 //retourne true si l'un des champs n'a pas été rempli
 function emptyInput($nom, $prenom, $email, $mdp, $remdp){
     if(empty($nom) || empty($prenom) || empty($email) || empty($mdp) || empty($remdp)){
@@ -207,4 +208,38 @@ function showButton($conn, $logedIn, $idSéance, $i){
     }
 
     echo ' <form method="post"><input type="submit" name="reserver' . $i . '" value="Réserver"></form></li>';
+}
+
+//retourne les lignes de la table Réservation correspondantes au client
+function getReservationsClient($conn, $idClient){
+    
+    $sql = "SELECT * FROM Réservation WHERE RefClient = ?;";
+    $statement = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($statement, $sql)) {
+        header("location: ../index.html");
+        exit();
+    }
+    mysqli_stmt_bind_param($statement, "i", $idClient);
+    mysqli_stmt_execute($statement);
+
+    $result = mysqli_stmt_get_result($statement);
+    $array = mysqli_fetch_all($result, MYSQLI_NUM);
+
+    return $array;
+}
+
+//affichage formatté des réservations du client
+function printReservations($array, $conn){
+    include_once 'Séance.php';
+    for($i = 0; $i<count($array); $i++){
+        $séance = new Séance($array[$i][3], $conn);
+        echo "<div style='background-color: #92222b; border-radius: 6px;'>";
+
+        echo '<p><a href="ordermovie.php?movie=' . $séance->getRefFilm() . '"><h4>' . $séance->getNomFilm() . '</h4></a></p>';
+        echo '<p><a href="cinema.php?cine=' . $séance->getRefCine() . '">' . $séance->getNomCine() . '</a></p>';
+        echo "<p>Date Séance: " . $séance->getDate() . "</p>";
+        echo "<p>Date Réservation: " . $array[$i][1] . "</p>";
+        echo "</div><br>";
+    }
 }
