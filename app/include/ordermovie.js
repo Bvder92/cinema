@@ -1,6 +1,6 @@
 function showButton(a){
     console.log(a);
-    return "<button class='btn' onclick='callPHP(" + a + ")'>Réserver</button>";
+    return "<button class='btn-active' onclick='callPHP(" + a + ")'>Réserver</button>";
 }
 
 function callPHP(div){
@@ -36,6 +36,7 @@ function stop(){
 const nbSéances = Number(document.getElementById("nbSeances").innerHTML.slice(21, 23)); //nombre de séances disponibles
 const idFilm = document.getElementsByTagName("span")[0].id; //idFilm
 console.log("idFilm: " + idFilm + ", nbSeances: " + nbSéances);
+
 const result = document.querySelector("#result"); //div en bas de page qui contient le bouton "réserver"
 const id1 = document.querySelector("#div0");
 const id2 = document.querySelector("#div1");

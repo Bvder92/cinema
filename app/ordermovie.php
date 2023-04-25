@@ -36,10 +36,10 @@ if (!isset($_SESSION["IdClient"])) {
     <script src="https://kit.fontawesome.com/927b94a7cf.js" crossorigin="anonymous"></script>
     <script src="https://code.jQuery.com/jquery-3.6.0.min.js"></script>
     <title>Réserver un film</title>
-    <script></script>
 </head>
     
 <script defer src = "include/ordermovie.js" >
+<script src="/include/main.js"></script>
 </script>
 
 <body>
@@ -83,7 +83,7 @@ if (!isset($_SESSION["IdClient"])) {
                 <h2> <?php echo $film->getNom(); ?></h2>
                 <span> <?php echo $film->getProducteur(); ?> </span>
 
-                <button onclick="play();" class="btn-play"><i class="fa-regular fa-play play-movie"></i></button>
+                <a href="<?php echo $film->getBandeAnnonce(); ?>" target="_blank"><button class="btn-play"><i class="fa-regular fa-play play-movie"></i></button></a>
                 <div class="tags">
                     <span><?php echo $film->getGenre(); ?></span>
                     <span><?php echo $film->getDuree(); ?></span>
@@ -116,6 +116,7 @@ if (!isset($_SESSION["IdClient"])) {
         <div class="titre">
             <h2>Séances Disponibles</h2>
         </div>
+        
 
         <?php
         for ($i = 0; $i < count($array); $i++) {
@@ -123,12 +124,19 @@ if (!isset($_SESSION["IdClient"])) {
             $DateSéance = $array[$i][1];
             $RefFilm = $array[$i][2];
             $RefCine = $array[$i][3];
+            
 
-            echo '
+            echo '<div class="div" id="div' . $i . '">
+            <h4 class="subtitle">' . getNomCine($conn, $RefCine) . "</h4>
+            <button class='seance'><b>" . $DateSéance . "</b><br> VF, <i class='fa-regular fa-audio-description'></i></button>
+            </div>
+            ";
+            
+            /*echo '
                 <div id=div' . $i . ' class="tags" >
                     <span>' . getNomCine($conn, $RefCine) .'  '. $DateSéance . '</span>
                 </div>
-                ';
+                ';*/
         }
         
         ?>
@@ -138,6 +146,8 @@ if (!isset($_SESSION["IdClient"])) {
         </div>
 
     </div>
+
+    <?php include_once 'include/copyright.php'; ?>
 
 </body>
 

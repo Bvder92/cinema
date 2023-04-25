@@ -65,16 +65,22 @@ if (!isset($_SESSION["IdClient"])) {
         <div class="film-details">
             <img class="film-image" src="<?php echo $ciné->getImage(); ?>" alt="<?php echo $ciné->getNom(); ?>" width="200" height="275">
 
-            <h1 class="film-title"><?php echo $ciné->getNom(); ?></h1>
+            
             <div class="film-info">
+                <h2><?php echo $ciné->getNom(); ?></h2>
+                <span><?php echo $ciné->getVille(); ?></span>
+
                 <div class="tags">
-                    <span><?php echo $ciné->getVille(); ?></span>
+                    
                     <span><?php if ($logedIn == true) {
                                 echo "Loged in";
                             } else {
                                 echo "Loged out";
                             } ?></span>
-                    <span id="nbSeances"><?php echo "Séances Disponibles: " . count($array); ?></span>
+                    <span id="nbSeances"><?php echo count($array) . " Séances Disponibles " ; ?></span>
+                    <span><i class="fa-regular fa-audio-description"></i></span>
+                    <span><i class="fa-regular fa-wheelchair-move"></i></span>
+                    <span><i class="fa-solid fa-panorama"></i></span>
                 </div>
             </div>
             
@@ -95,7 +101,19 @@ if (!isset($_SESSION["IdClient"])) {
         $RefFilm = $array[$i][2];
         $RefCine = $array[$i][3];
 
-        echo '<div id="div' . $i . '" style="background-color: red;"><h4>' . getNomFilm($conn, $RefFilm) . "</h4><p>" . $DateSéance . "</p></div><br>";
+        /*echo '<div id="div' . $i . '" style="background-color: red;">
+            <h4>' . getNomFilm($conn, $RefFilm) . "</h4>
+            <p>" . $DateSéance . "</p>
+            </div>
+        <br>";
+        */
+
+        echo '<div class="div" id="div' . $i . '">
+            <h4 class="subtitle">' . getNomFilm($conn, $RefFilm) . "</h4>
+            <button class='seance'><b>" . $DateSéance . "</b><br> VF, <i class='fa-regular fa-audio-description'></i></button>
+            </div>
+            ";
+            
     }
 
     ?>
@@ -103,6 +121,9 @@ if (!isset($_SESSION["IdClient"])) {
     <div id="result">
         <button disabled class="btn-disabled">Réserver</button>
     </div>
+
+    <?php include_once 'include/copyright.php'; ?>
+
 </body>
 
 </html>
