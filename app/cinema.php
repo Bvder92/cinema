@@ -118,7 +118,7 @@ if (!isset($_SESSION["IdClient"])) {
     }
 
     ?>
-
+    <iframe src="<?php echo $ciné->getLoc(); ?>" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <div id="result">
         <button disabled class="btn-disabled">Réserver</button>
     </div>

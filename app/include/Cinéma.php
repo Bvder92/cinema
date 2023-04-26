@@ -31,6 +31,7 @@ class Cinéma
         $this->nomCiné = $row["NomCine"];
         $this->villeCiné = $row["Ville"];
         $this->image = $row["ImageCine"];
+        $this->localisation = $row["localisation"];
 
         if ($this->idCiné == ""){
             //header("location: cinema.php?error=noid");
@@ -53,6 +54,10 @@ class Cinéma
 
     function getImage(){
         return $this->image;
+    }
+
+    function getLoc(){
+        return $this->localisation; 
     }
 
     function getSeances(){
