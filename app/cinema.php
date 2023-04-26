@@ -77,7 +77,7 @@ if (!isset($_SESSION["IdClient"])) {
                             } else {
                                 echo "Loged out";
                             } ?></span>
-                    <span id="nbSeances"><?php echo count($array) . " Séances Disponibles " ; ?></span>
+                    <!--<span id="nbSeances"><?php echo count($array) . " Séances Disponibles " ; ?></span>-->
                     <span><i class="fa-regular fa-audio-description"></i></span>
                     <span><i class="fa-regular fa-wheelchair-move"></i></span>
                     <span><i class="fa-solid fa-panorama"></i></span>
@@ -90,7 +90,7 @@ if (!isset($_SESSION["IdClient"])) {
     <!--  AFFICHAGE DES SÉANCES -->
 
     <div class="titre">
-        <h2>Séances Disponibles</h2>
+        <h2><?php echo count($array); ?> Séances Disponibles</h2>
     </div>
 
     <?php
@@ -100,6 +100,7 @@ if (!isset($_SESSION["IdClient"])) {
         $DateSéance = $array[$i][1];
         $RefFilm = $array[$i][2];
         $RefCine = $array[$i][3];
+        $date = strtotime($DateSéance);
 
         /*echo '<div id="div' . $i . '" style="background-color: red;">
             <h4>' . getNomFilm($conn, $RefFilm) . "</h4>
@@ -110,7 +111,7 @@ if (!isset($_SESSION["IdClient"])) {
 
         echo '<div class="div" id="div' . $i . '">
             <h4 class="subtitle">' . getNomFilm($conn, $RefFilm) . "</h4>
-            <button class='seance'><b>" . $DateSéance . "</b><br> VF, <i class='fa-regular fa-audio-description'></i></button>
+            <button class='seance'><b>" . date('d F, H:i', $date) . "</b><br> VF, <i class='fa-regular fa-audio-description'></i></button>
             </div>
             ";
             

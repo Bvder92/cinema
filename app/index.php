@@ -18,7 +18,12 @@
 <body>
 <script src="/include/main.js"></script>
      
-    <?php include_once 'include/header.php'; ?>
+    <?php
+    include_once 'include/header.php';
+    if(isset($_GET["error"]) && $_GET["error"] == 1){
+        echo "<script defer>alert('Désolé, une erreur est survenue, veuillez réssayer ultérieurement.');</script>";
+    }
+    ?>
     
     <script> //script pour la navbar qui devient opaque 
         let header = document.querySelector('header');

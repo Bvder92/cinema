@@ -16,8 +16,14 @@ function callPHP(div){
             else if (data == "notLogedIn") {
                 alert("Veuillez vous connecter pour réserver un film");
             }
+            else if (data == "dejareservee"){
+                alert("Vous avez déjà réservé cette séance!");
+            }
+            else if (data == "sqlerror"){
+                alert("Une erreur est survenue avec la base de données, veuillez réessayer plus tard");
+            }
             else {
-                alert("Réponse serveur inconnue, voir console");
+                alert("Une erreur est survenue, veuillez réessayer plus tard");
             }
         }
     });
@@ -33,7 +39,7 @@ function stop(){
 }
 
 
-const nbSéances = Number(document.getElementById("nbSeances").innerHTML.slice(21, 23)); //nombre de séances disponibles
+const nbSéances = 15; //nombre de séances disponibles (15 pour tous les films)
 const idFilm = document.getElementsByTagName("span")[0].id; //idFilm
 console.log("idFilm: " + idFilm + ", nbSeances: " + nbSéances);
 
@@ -53,8 +59,6 @@ const id12 = document.querySelector("#div11");
 const id13 = document.querySelector("#div12");
 const id14 = document.querySelector("#div13");
 const id15 = document.querySelector("#div14");
-//const id16 = document.querySelector('#div16');
-//const id17 = document.querySelector('#div17');
 
 
 id1.addEventListener('click', e => {result.innerHTML = showButton(0);});

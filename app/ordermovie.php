@@ -38,9 +38,9 @@ if (!isset($_SESSION["IdClient"])) {
     <title>Réserver un film</title>
 </head>
     
-<script defer src = "include/ordermovie.js" >
+<script defer src = "include/ordermovie.js" ></script>
 <script src="/include/main.js"></script>
-</script>
+
 
 <body>
 
@@ -108,13 +108,12 @@ if (!isset($_SESSION["IdClient"])) {
                                 echo "Loged out";
                             } ?></span>
 
-    <!--<span id="nbSeances"><?php echo "Séances Disponibles: " . count($array); ?></span>--> 
 
     <!--  AFFICHAGE DES SÉANCES -->
    
     <div class="liste-seances">
         <div class="titre">
-            <h2>Séances Disponibles</h2>
+            <h2><?php echo count($array); ?> Séances Disponibles</h2>
         </div>
         
 
@@ -124,11 +123,11 @@ if (!isset($_SESSION["IdClient"])) {
             $DateSéance = $array[$i][1];
             $RefFilm = $array[$i][2];
             $RefCine = $array[$i][3];
-            
+            $date = strtotime($DateSéance);
 
             echo '<div class="div" id="div' . $i . '">
             <h4 class="subtitle">' . getNomCine($conn, $RefCine) . "</h4>
-            <button class='seance'><b>" . $DateSéance . "</b><br> VF, <i class='fa-regular fa-audio-description'></i></button>
+            <button class='seance'><b>" . date('d F, H:i', $date) . "</b><br> VF, <i class='fa-regular fa-audio-description'></i></button>
             </div>
             ";
             

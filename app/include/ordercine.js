@@ -17,10 +17,17 @@ function callPHP(div){
             else if (data == "notLogedIn") {
                 alert("Veuillez vous connecter pour réserver un film");
             }
+            else if (data == "dejareservee"){
+                alert("Vous avez déjà réservé cette séance!");
+            }
+            else if (data == "sqlerror"){
+                alert("Une erreur est survenue avec la base de données, veuillez réessayer plus tard");
+            }
             else {
-                alert("Réponse serveur inconnue, voir console");
+                alert("Une erreur est survenue, veuillez réessayer plus tard");
             }
         }
+
     });
 }
 

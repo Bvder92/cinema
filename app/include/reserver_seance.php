@@ -7,6 +7,7 @@ if(!isset($_POST["mode"]) || !isset($_POST["index"])){
     exit();
 }
 
+//on réserve à partir d'un film
 if ($_POST["mode"] == "film"){
     if ($_POST["movie"] < 0 || $_POST["movie"] > 20) {
         echo "POST parameters invalid";
@@ -32,9 +33,19 @@ if ($_POST["mode"] == "film"){
     $array = $film->getSeances();
 
     //post[index][0] correspond à IdClient de la index-ieme ligne de la table
-    reserverSeance($conn, $_SESSION["IdClient"], $array[$_POST["index"]][0]);
-    echo "sucess";
+    $reservation = reserverSeance($conn, $_SESSION["IdClient"], $array[$_POST["index"]][0]);
+    if($reservation == 0){
+        echo "sucess";
+    }
+    else if ($reservation == 1){
+        echo "dejareservee";
+    }
+    else{
+        echo "sqlerror";
+    }
+
 }
+//on réserve à partir d'un cinéma
 else if($_POST["mode"] == "cine"){
     if ($_POST["movie"] < 0 || $_POST["movie"] > 20) {
         echo "POST parameters invalid";
@@ -60,6 +71,14 @@ else if($_POST["mode"] == "cine"){
     $array = $ciné->getSeances();
 
     //post[index][0] correspond à IdClient de la index-ieme ligne de la table
-    reserverSeance($conn, $_SESSION["IdClient"], $array[$_POST["index"]][0]);
-    echo "sucess";
+    $reservation = reserverSeance($conn, $_SESSION["IdClient"], $array[$_POST["index"]][0]);
+    if($reservation == 0){
+        echo "sucess";
+    }
+    else if ($reservation == 1){
+        echo "dejareservee";
+    }
+    else{
+        echo "sqlerror";
+    }
 }
