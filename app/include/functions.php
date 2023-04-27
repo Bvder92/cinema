@@ -135,7 +135,7 @@ function getNomCine($conn, $id){
     $statement = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($statement, $sql)) {
-        header("location: ../index.html");
+        header("location: ../index.php?error=1");
         exit();
     }
     mysqli_stmt_bind_param($statement, "i", $id);
@@ -154,7 +154,7 @@ function getNomFilm($conn, $id){
     $statement = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($statement, $sql)) {
-        header("location: ../index.html");
+        header("location: ../index.php?error=1");
         exit();
     }
     mysqli_stmt_bind_param($statement, "i", $id);
@@ -168,19 +168,24 @@ function getNomFilm($conn, $id){
 
 function reserverSeance($conn, $idClient, $idSéance){
     
+    $array = getReservationsClient($conn, $idClient); //contenu de la table réservation pour ce client
+    for ($i = 0; $i < count($array); $i++){
+        if($array[$i][3] == $idSéance){ //la séance a déjà été réservée par le client
+            return 1;
+        }
+    }
     $sql = "INSERT INTO Réservation(DateRéservation, RefClient, RefSéance) VALUES(?, ?, ?);";
     $date = date("Y-m-d");
 
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
-        header("location: ../ordermovie.php?error=sqlerror");
-        exit();
+        return 2;
     }
     mysqli_stmt_bind_param($statement, "sii", $date, $idClient, $idSéance);
     mysqli_stmt_execute($statement);
 
     mysqli_stmt_close($statement);
-
+    return 0;
 }
 
 //vérifie que l'utilisateur soit connecté, et la séance pas déjà réservée
@@ -193,7 +198,7 @@ function showButton($conn, $logedIn, $idSéance, $i){
         $statement = mysqli_stmt_init($conn);
 
         if (!mysqli_stmt_prepare($statement, $sql)) {
-            header("location: ../index.html");
+            header("location: ../index.php?error=1");
             exit();
         }
         mysqli_stmt_bind_param($statement, "ii", $_SESSION["IdClient"], $idSéance);
@@ -217,7 +222,7 @@ function getReservationsClient($conn, $idClient){
     $statement = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($statement, $sql)) {
-        header("location: ../index.html");
+        header("location: ../index.php?error=1");
         exit();
     }
     mysqli_stmt_bind_param($statement, "i", $idClient);
@@ -232,25 +237,29 @@ function getReservationsClient($conn, $idClient){
 //affichage formatté des réservations du client
 function printReservations($array, $conn){
     include_once 'Séance.php';
+    setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']);
     for($i = 0; $i<count($array); $i++){
         $séance = new Séance($array[$i][3], $conn);
         echo "<div style='background-color: #92222b; border-radius: 6px;'>";
 
+
         echo '<p><a href="ordermovie.php?movie=' . $séance->getRefFilm() . '"><h3>' . $séance->getNomFilm() . '</h3></a></p>';
         echo '<p><a href="cinema.php?cine=' . $séance->getRefCine() . '">' . $séance->getNomCine() . '</a></p>';
-        echo "<p>Date Séance: " . $séance->getDate() . "</p>";
-        echo "<p>Date Réservation: " . $array[$i][1] . "</p>";
+        $date = strtotime($séance->getDate());
+        echo "<p>Date Séance: " . date('d F, H:i', $date) .  "</p>";
+
+        $date = strtotime($array[$i][1]);
+        echo "<p>Date Réservation: " . date('d F Y', $date) .  "</p>";
         echo "</div><br>";
     }
 }
-
 function getLocalisation($conn, $id){
     
     $sql = "SELECT * FROM Cinéma WHERE IdCine = ?;";
     $statement = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($statement, $sql)) {
-        header("location: ../index.html");
+        header("location: ../index.php?error=1");
         exit();
     }
     mysqli_stmt_bind_param($statement, "i", $id);
