@@ -30,13 +30,7 @@ function callPHP(div){
 }
 
 
-function play(){
-    document.getElementById("video").play();
-}
 
-function stop(){
-    document.getElementById("video").pause();
-}
 
 
 const nbSéances = 15; //nombre de séances disponibles (15 pour tous les films)

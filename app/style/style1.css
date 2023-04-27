@@ -568,41 +568,7 @@ p{
     margin-top: 10px;
 }
 
-.video-container{
-    position: fixed;
-    top:0;
-    left:0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    background: hsl(234 10% 20% / 60%);
-    z-index: 400;
-}
 
-/*.video-container.show-video{
-    display: flex;
-}*/
-
-.video-box{
-    position: relative;
-    width: 82%;
-}
-
-.video-box #b-a{
-    width: 100%;
-    aspect-ratio: 16/9;
-}
-
-.close-video{
-    position : absolute; 
-    top: -3rem;
-    right: 0; 
-    font-size: 40px;
-    color: #ED2939;
-
-}
 
 .liste-seances{
     margin: auto; 
@@ -659,20 +625,26 @@ p{
     transition: ease-out 0.4s;
 }
 
+
 .seance{
     width: 100px;
     height: 80px;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: auto;
-    border: none; 
-    outline: none; 
+    background: #ffffff;
+    color: black;
+    outline: none;
     font-weight: 400;
     font-size: 1em;
     border-radius: 10px;
-    background: #ffffff;
-    color: #000000;
-    box-shadow: 2px 2px 5px rgba(218, 218, 218, 0.3);
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 grey;
+    transition: ease-out 0.4s;
 }
 
 
+.seance:active{
+    box-shadow: inset 150px 0 0 0 #92222b;
+    color: #ffffff;
+}
+
+
+  

@@ -8,6 +8,7 @@ class Cinéma
     private $nomCiné;
     private $villeCiné;
     private $image;
+    private $localisation;
     private $conn;
 
     function __construct($id, $conn){

@@ -92,11 +92,6 @@ if (!isset($_SESSION["IdClient"])) {
             </div>
 
             
-            <!--<div class="video-container">
-                <div class="video-box">
-                    <video id="video" src="<?php echo $film->getBandeAnnonce(); ?>" controls></video>
-                    <i onclick="pause();"class="fa-regular fa-xmark close-video"></i>
-            </div>-->
         </div> 
         
 
@@ -119,20 +114,22 @@ if (!isset($_SESSION["IdClient"])) {
             $date = strtotime($DateSéance);
 
             echo '<div class="div" id="div' . $i . '">
-            <h4 class="subtitle">' . getNomCine($conn, $RefCine) . "</h4>
-            <button class='seance'><b>" . date('d F, H:i', $date) . "</b><br> VF, <i class='fa-regular fa-audio-description'></i></button>
+                <h4 class="subtitle">' . getNomCine($conn, $RefCine) . "</h4>
+                <button class='seance' id='seance'> <b>" . date('d F, H:i', $date) . "</b><br> VF, <i class='fa-regular fa-audio-description'></i></button>
+                
             </div>
-            ";
-            
+            "; 
+           
             /*echo '
                 <div id=div' . $i . ' class="tags" >
                     <span>' . getNomCine($conn, $RefCine) .'  '. $DateSéance . '</span>
                 </div>
                 ';*/
         }
-        
+       
         ?>
-
+        <br><br>
+       
         <div id="result">
             <button disabled class="btn-disabled">Réserver</button>
         </div>

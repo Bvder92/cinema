@@ -106,15 +106,19 @@ if (!isset($_SESSION["IdClient"])) {
 
         echo '<div class="div" id="div' . $i . '">
             <h4 class="subtitle">' . getNomFilm($conn, $RefFilm) . "</h4>
-            <button class='seance'><b>" . date('d F, H:i', $date) . "</b><br> VF, <i class='fa-regular fa-audio-description'></i></button>
+            <button class='seance' id='seance' ><b>" . date('d F, H:i', $date) . "</b><br> VF, <i class='fa-regular fa-audio-description'></i></button>
             </div>
             ";
             
     }
 
     ?>
+
     <!-- commenté car empeche de charger la page jusqu'au bout -->
-    <!-- <iframe src="<?php //echo $ciné->getLoc(); ?>" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+    
+    <!--<iframe src="<?php echo $ciné->getLoc(); ?>" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+
+    
 
     <div id="result">
         <button disabled class="btn-disabled">Réserver</button>
