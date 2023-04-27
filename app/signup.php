@@ -45,6 +45,9 @@
                     <input type="password" name="remdp" placeholder="Retaper mot de passe">
                 </div>
                 <button type="submit" name="submit" class="btn-login">S'inscrire</button>
+                <div class="login-register">
+                    <p>Vous avez déjà un compte? <a href="login.php" class="register-link">Connectez vous</a></p>
+                </div>
             </form>
         </div>     
     </div>
