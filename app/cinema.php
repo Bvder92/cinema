@@ -71,12 +71,7 @@ if (!isset($_SESSION["IdClient"])) {
                 <span><?php echo $ciné->getVille(); ?></span>
 
                 <div class="tags">
-                    
-                    <span><?php if ($logedIn == true) {
-                                echo "Loged in";
-                            } else {
-                                echo "Loged out";
-                            } ?></span>
+
                     <!--<span id="nbSeances"><?php echo count($array) . " Séances Disponibles " ; ?></span>-->
                     <span><i class="fa-regular fa-audio-description"></i></span>
                     <span><i class="fa-regular fa-wheelchair-move"></i></span>
@@ -118,7 +113,9 @@ if (!isset($_SESSION["IdClient"])) {
     }
 
     ?>
-    <iframe src="<?php echo $ciné->getLoc(); ?>" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- commenté car empeche de charger la page jusqu'au bout -->
+    <!-- <iframe src="<?php //echo $ciné->getLoc(); ?>" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
     <div id="result">
         <button disabled class="btn-disabled">Réserver</button>
     </div>

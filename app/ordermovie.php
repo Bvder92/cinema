@@ -102,13 +102,6 @@ if (!isset($_SESSION["IdClient"])) {
 
     </div>
     
-       <span><?php if ($logedIn == true) {
-                                echo "Loged in";
-                            } else {
-                                echo "Loged out";
-                            } ?></span>
-
-
     <!--  AFFICHAGE DES SÉANCES -->
    
     <div class="liste-seances">

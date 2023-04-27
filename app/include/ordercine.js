@@ -31,7 +31,7 @@ function callPHP(div){
     });
 }
 
-const nbSéances = Number(document.getElementById("nbSeances").innerHTML.slice(21, 23)); //nombre de séances disponibles
+const nbSéances = 20; //nombre de séances disponibles
 const idCine = document.getElementsByTagName("span")[0].id; //idCine
 console.log("idCine: " + idCine + ", nbSeances: " + nbSéances);
 
