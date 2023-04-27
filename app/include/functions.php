@@ -250,6 +250,8 @@ function printReservations($array, $conn){
 
         $date = strtotime($array[$i][1]);
         echo "<p>Date Réservation: " . date('d F Y', $date) .  "</p>";
+
+        echo "<p><a href='qr-code.php'>Votre Billet</a></p>";
         echo "</div><br>";
     }
 }
