@@ -642,7 +642,8 @@ p{
 
 
 .seance:active{
-    box-shadow: inset 150px 0 0 0 #92222b;
+    /*box-shadow: inset 150px 0 0 0 #878787;*/
+    background: #969892;
     color: #ffffff;
 }
 
